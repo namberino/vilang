@@ -242,7 +242,7 @@ std::any Resolver::visitClassStmt(std::shared_ptr<ClassStmt> stmt)
     {
         FunctionType declaration = FunctionType::METHOD;
 
-        if (method->name.lexeme == "init")
+        if (method->name.lexeme == "tạo")
             declaration = FunctionType::INITIALIZER;
 
         resolve_function(method->fn, declaration);

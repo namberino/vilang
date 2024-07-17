@@ -18,7 +18,7 @@ std::shared_ptr<NblFunction> NblClass::find_method(const std::string& name)
 
 int NblClass::arity()
 {
-    std::shared_ptr<NblFunction> initializer = find_method("init");
+    std::shared_ptr<NblFunction> initializer = find_method("tạo");
     
     if (initializer == nullptr)
         return 0;
@@ -29,7 +29,7 @@ int NblClass::arity()
 std::any NblClass::call(Interpreter& interpreter, std::vector<std::any> arguments)
 {
     auto instance = std::make_shared<NblInstance>(shared_from_this());
-    std::shared_ptr<NblFunction> initializer = find_method("init");
+    std::shared_ptr<NblFunction> initializer = find_method("tạo");
 
     if (initializer != nullptr)
         initializer->bind(instance)->call(interpreter, std::move(arguments));

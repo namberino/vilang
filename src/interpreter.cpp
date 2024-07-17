@@ -143,7 +143,7 @@ std::any Interpreter::visitClassStmt(std::shared_ptr<ClassStmt> stmt)
     std::map<std::string, std::shared_ptr<NblFunction>> methods;
     for (std::shared_ptr<FunctionStmt> method : stmt->methods)
     {
-        bool is_method_init = method->name.lexeme == "init";
+        bool is_method_init = method->name.lexeme == "tạo";
         auto function = std::make_shared<NblFunction>(stmt->name.lexeme, method->fn, environment, is_method_init);
         methods[method->name.lexeme] = function;
     }
