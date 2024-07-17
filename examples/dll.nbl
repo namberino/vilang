@@ -1,0 +1,88 @@
+lớp Node
+{
+    tạo(dữ_liệu)
+    {
+        đây.dữ_liệu = dữ_liệu;
+        đây.tiếp = không;
+        đây.sau = không;
+    }
+}
+
+lớp DoublelyLinkedList
+{
+    tạo()
+    {
+        đây.đầu = không;
+    }
+
+    đẩy(new_dữ_liệu)
+    {
+        biến new_node = Node(new_dữ_liệu);
+        new_node.tiếp = đây.đầu;
+
+        nếu (đây.đầu != không)
+        {
+            đây.đầu.sau = new_node;
+        }
+
+        đây.đầu = new_node;
+    }
+
+    xóa(giá_trị)
+    {
+        biến node_hiện_tại = đây.đầu;
+
+        khi (node_hiện_tại != không)
+        {
+            nếu (node_hiện_tại.dữ_liệu == giá_trị)
+            {
+                nếu (node_hiện_tại.sau != không và node_hiện_tại.tiếp != không)
+                {
+                    node_hiện_tại.sau.tiếp = node_hiện_tại.tiếp;
+                    node_hiện_tại.tiếp.sau = node_hiện_tại.sau;
+                }
+                thì
+                {
+                    đây.đầu = node_hiện_tại.tiếp;
+                }
+
+                dừng;
+            }
+
+            node_hiện_tại = node_hiện_tại.tiếp;
+        }
+    }
+
+    in_dll()
+    {   
+        biến node_hiện_tại = đây.đầu;
+
+        khi (node_hiện_tại.tiếp != không)
+        {
+            node_hiện_tại = node_hiện_tại.tiếp;
+        }
+
+        khi (node_hiện_tại != không)
+        {
+            in("Check " + node_hiện_tại.dữ_liệu);
+            node_hiện_tại = node_hiện_tại.sau;
+        }
+    }
+}
+
+biến dll = DoublelyLinkedList();
+
+dll.đẩy(1);
+dll.đẩy(2);
+dll.đẩy(3);
+dll.đẩy(4);
+dll.đẩy(5);
+
+dll.in_dll();
+in("");
+
+in("Xóa node '3'");
+dll.xóa(3);
+in("");
+
+dll.in_dll();

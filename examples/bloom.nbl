@@ -1,0 +1,45 @@
+hàm max(arg1, arg2)
+{
+    nếu (arg1 >= arg2)
+        trả arg1;
+    trả arg2;
+}
+
+hàm abs(num)
+{
+    nếu (num < 0)
+        trả 0 - num;
+    trả num;
+}
+
+hàm bloom(n)
+{
+    biến arr = [];
+    
+    cho (biến i = 0; i < n; i = i + 1)
+    {
+        arr[i] = [];
+    }
+
+    biến mid = floordiv(n, 2);
+    biến khoảng_cách;
+
+    cho (biến i = 0; i < n; i = i + 1)
+    {
+        cho (biến j = 0; j < n; j = j + 1)
+        {
+            khoảng_cách = max(abs(i - mid), abs(j - mid));
+            arr[i][j] = khoảng_cách + 1;
+        }
+    }
+
+    trả arr;
+}
+
+biến n = input("Enter length: ");
+biến arr = bloom(n);
+
+cho (biến i = 0; i < n; i = i + 1)
+{
+    in(arr[i]);
+}

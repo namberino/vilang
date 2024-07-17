@@ -1,0 +1,59 @@
+lớp Node
+{
+    tạo(khóa)
+    {
+        đây.trái = không;
+        đây.phải = không;
+        đây.giá_trị = khóa;
+    }
+
+    preorder()
+    {
+        in(đây.giá_trị);
+        nếu (đây.trái)
+            đây.trái.preorder();
+
+        nếu (đây.phải)
+            đây.phải.preorder();
+    }
+
+    inorder()
+    {
+        nếu (đây.trái)
+            đây.trái.inorder();
+
+        in(đây.giá_trị);
+
+        nếu (đây.phải)
+            đây.phải.inorder();
+    }
+
+    postorder()
+    {
+        nếu (đây.trái)
+            đây.trái.postorder();
+
+        nếu (đây.phải)
+            đây.phải.postorder();
+
+        in(đây.giá_trị);
+    }
+}
+
+biến root = Node(1);
+root.trái = Node(2);
+root.phải = Node(3);
+root.trái.trái = Node(4);
+root.trái.phải = Node(5);
+
+in("Preorder:");
+root.preorder();
+in("");
+
+in("Inorder:");
+root.inorder();
+in("");
+
+in("Postorder:");
+root.postorder();
+in("");
