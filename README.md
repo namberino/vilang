@@ -1,4 +1,4 @@
-# Namlang: The Vietnamese Programming Language
+# NBLang: The Vietnamese Programming Language
 
 This is a fork of the [NIMBLE](https://github.com/namberino/nimble) interpreter. This fork aims to implement the NIMBLE programming language but with Vietnamese syntax
 
