@@ -1,0 +1,9 @@
+biến li = [];
+in(li);
+in(li[0]);
+
+biến li = [1, 2, 3];
+in(li);
+in(li[0]);
+in(li[1]);
+in(li[2]);

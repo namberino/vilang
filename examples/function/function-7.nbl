@@ -1,6 +1,0 @@
-var name = input("Enter your name: ");
-var age = input("Enter your age: ");
-
-var birth_year = 2024 - age;
-
-print("Name: " + name + " | Birth year: " + birth_year);

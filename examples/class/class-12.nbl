@@ -1,2 +1,0 @@
-print(super); // syntax error
-print(super.testing()); // outside of class error

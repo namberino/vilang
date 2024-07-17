@@ -1,0 +1,78 @@
+lớp Tree
+{
+    init(vật, độ_sâu)
+    {
+        this.vật = vật;
+        this.độ_sâu = độ_sâu;
+
+        nếu (độ_sâu > 0)
+        {
+            biến vật2 = vật + vật;
+            độ_sâu = độ_sâu - 1;
+            this.trái = Tree(vật2 - 1, độ_sâu);
+            this.phải = Tree(vật2, độ_sâu);
+        }
+        thì
+        {
+            this.trái = không;
+            this.phải = không;
+        }
+    }
+
+    check()
+    {
+        nếu (this.trái == không)
+        {
+            trả this.vật;
+        }
+
+        trả this.vật + this.trái.check() - this.phải.check();
+    }
+}
+
+biến độ_sâu_min = 4;
+biến độ_sâu_max = 12;
+biến stretch_depth = độ_sâu_max + 1;
+
+biến start = clock();
+
+in("Stretch tree depth: " + stretch_depth);
+in("Check: " + Tree(0, stretch_depth).check());
+
+biến long_lived_tree = Tree(0, độ_sâu_max);
+
+// iterations = 2 ** độ_sâu_max
+biến iterations = 1;
+biến d = 0;
+
+khi (d < độ_sâu_max)
+{
+    iterations = iterations * 2;
+    d = d + 1;
+}
+
+biến depth = min_depth;
+
+khi (depth < stretch_depth)
+{
+    biến check = 0;
+    biến i = 1;
+
+    khi (i <= iterations)
+    {
+        check = check + Tree(i, depth).check() + Tree(-i, depth).check();
+        i = i + 1;
+    }
+
+    in("Num trees: " + iterations * 2);
+    in("Depth: " + depth);
+    in("Check: " + check);
+
+    iterations = iterations / 4;
+    depth = depth + 2;
+}
+
+in("");
+in("Long lived tree of depth: " + độ_sâu_max);
+in("Check: " + long_lived_tree.check());
+in("Elapsed: " + (clock() - start));

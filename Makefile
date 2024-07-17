@@ -31,10 +31,4 @@ run: compile
 clean:
 	rm -f bin/* obj/*.o
 
-test: compile
-	./tools/test.sh
-
-bench: compile
-	./tools/bench.sh
-
-.PHONY: compile run clean test bench
+.PHONY: compile run clean

@@ -1,5 +1,0 @@
-fun test()
-{
-    var t = "1";
-    var t = "2"; // error
-}

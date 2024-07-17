@@ -1,6 +1,0 @@
-print(this);
-
-fun method()
-{
-    print(this);
-}
