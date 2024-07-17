@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
 {
     if (argc > 2) // too many arguments
     {
-        std::cout << "Usage: nimble <script>.nbl\n";
+        std::cout << "Cách dùng: nimble <tên_file>.nbl\n";
         exit(1);
     }
     else if (argc == 2) // run script file
@@ -84,7 +84,7 @@ void run(const std::string& source)
 
 void run_file(const std::string& path)
 {
-    std::cout << "Executing file: " + path + "\n";
+    std::cout << "Chạy file: " + path + "\n";
     std::ifstream file{path};
     std::string line;
     std::string file_content;
