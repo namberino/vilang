@@ -237,7 +237,7 @@ std::any Resolver::visitClassStmt(std::shared_ptr<ClassStmt> stmt)
     }
 
     begin_scope();
-    scopes.back()["this"] = true;
+    scopes.back()["đây"] = true;
     for (std::shared_ptr<FunctionStmt> method : stmt->methods)
     {
         FunctionType declaration = FunctionType::METHOD;

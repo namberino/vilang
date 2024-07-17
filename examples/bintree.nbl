@@ -2,31 +2,31 @@ lớp Tree
 {
     init(vật, độ_sâu)
     {
-        this.vật = vật;
-        this.độ_sâu = độ_sâu;
+        đây.vật = vật;
+        đây.độ_sâu = độ_sâu;
 
         nếu (độ_sâu > 0)
         {
             biến vật2 = vật + vật;
             độ_sâu = độ_sâu - 1;
-            this.trái = Tree(vật2 - 1, độ_sâu);
-            this.phải = Tree(vật2, độ_sâu);
+            đây.trái = Tree(vật2 - 1, độ_sâu);
+            đây.phải = Tree(vật2, độ_sâu);
         }
         thì
         {
-            this.trái = không;
-            this.phải = không;
+            đây.trái = không;
+            đây.phải = không;
         }
     }
 
     check()
     {
-        nếu (this.trái == không)
+        nếu (đây.trái == không)
         {
-            trả this.vật;
+            trả đây.vật;
         }
 
-        trả this.vật + this.trái.check() - this.phải.check();
+        trả đây.vật + đây.trái.check() - đây.phải.check();
     }
 }
 
