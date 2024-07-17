@@ -36,7 +36,7 @@ biến độ_sâu_stretch = độ_sâu_max + 1;
 
 biến start = clock();
 
-in("Stretch tree độ_sâu: " + độ_sâu_stretch);
+in("Cây stretch với độ sâu: " + độ_sâu_stretch);
 in("Check: " + Tree(0, độ_sâu_stretch).check());
 
 biến cây_lâu_dài = Tree(0, độ_sâu_max);
