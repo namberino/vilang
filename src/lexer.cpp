@@ -241,7 +241,7 @@ const std::map<std::string, TokenType> Lexer::keywords = {
     {"hoặc", TokenType::OR},
     {"in", TokenType::PRINT},
     {"trả", TokenType::RETURN},
-    {"super", TokenType::SUPER},
+    {"cha", TokenType::SUPER},
     {"đây", TokenType::THIS},
     {"đúng", TokenType::TRUE},
     {"biến", TokenType::VAR},

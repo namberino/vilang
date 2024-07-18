@@ -137,7 +137,7 @@ std::any Interpreter::visitClassStmt(std::shared_ptr<ClassStmt> stmt)
     if (stmt->superclass != nullptr)
     {
         environment = std::make_shared<Environment>(environment);
-        environment->define("super", superclass);
+        environment->define("cha", superclass);
     }
 
     std::map<std::string, std::shared_ptr<NblFunction>> methods;
@@ -392,7 +392,7 @@ std::any Interpreter::visitThisExpr(std::shared_ptr<ThisExpr> expr)
 std::any Interpreter::visitSuperExpr(std::shared_ptr<SuperExpr> expr)
 {
     int distance = locals[expr];
-    auto superclass = std::any_cast<std::shared_ptr<NblClass>>(environment->get_at(distance, "super"));
+    auto superclass = std::any_cast<std::shared_ptr<NblClass>>(environment->get_at(distance, "cha"));
     auto obj = std::any_cast<std::shared_ptr<NblInstance>>(environment->get_at(distance - 1, "đây"));
     std::shared_ptr<NblFunction> method = superclass->find_method(expr->method.lexeme);
 

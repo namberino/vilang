@@ -233,7 +233,7 @@ std::any Resolver::visitClassStmt(std::shared_ptr<ClassStmt> stmt)
     if (stmt->superclass != nullptr)
     {
         begin_scope();
-        scopes.back()["super"] = true;
+        scopes.back()["cha"] = true;
     }
 
     begin_scope();

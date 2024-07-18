@@ -46,7 +46,7 @@
             "patterns": [
 				{
 					"name": "entity.name.function.member.nimble",
-                    "match": "\\b(in|hàm|input|exit|clock|time|tạo|super)\\b"
+                    "match": "\\b(in|hàm|input|exit|clock|time|tạo|cha)\\b"
 				}
 			]
         },
