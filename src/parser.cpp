@@ -66,11 +66,11 @@ std::shared_ptr<Stmt> Parser::statement()
 
 std::shared_ptr<Stmt> Parser::print_statement()
 {
-    consume(LEFT_PAREN, "Expected '(' after 'print' statement");
+    consume(LEFT_PAREN, "Cần '(' sau câu lệnh 'print'");
     // shared_ptr used here be cause it's accessing another shared_ptr object already created by expression()
     std::shared_ptr<Expr> value = expression();
-    consume(RIGHT_PAREN, "Missing ')' for 'print' statement");
-    consume(SEMICOLON, "Expected ';' after value");
+    consume(RIGHT_PAREN, "Thiếu ')' cho câu lệnh 'print'");
+    consume(SEMICOLON, "Cần ';' sau câu lệnh");
 
     // make_shared combines allocation of the object and control block into a single memory allocation
     // more efficient and better exception safety
@@ -79,9 +79,9 @@ std::shared_ptr<Stmt> Parser::print_statement()
 
 std::shared_ptr<Stmt> Parser::if_statement()
 {
-    consume(LEFT_PAREN, "Expected '(' after 'if' statement");
+    consume(LEFT_PAREN, "Cần '(' sau câu lệnh 'if'");
     std::shared_ptr<Expr> condition = expression();
-    consume(RIGHT_PAREN, "Expected ')' after 'if' condition");
+    consume(RIGHT_PAREN, "Cần ')' sau điều kiện của 'if'");
 
     std::shared_ptr<Stmt> then_branch = statement();
     std::shared_ptr<Stmt> else_branch = nullptr;
@@ -96,7 +96,7 @@ std::shared_ptr<Stmt> Parser::for_statement()
 {
     try 
     {
-        consume(LEFT_PAREN, "Expected '(' after 'for' statement");
+        consume(LEFT_PAREN, "Cần '(' sau câu lệnh 'for'");
         std::shared_ptr<Stmt> initializer;
 
         if (match(SEMICOLON)) // initializer omitted
@@ -109,12 +109,12 @@ std::shared_ptr<Stmt> Parser::for_statement()
         std::shared_ptr<Expr> condition = nullptr;
         if (!check(SEMICOLON)) // clause not omitted
             condition = expression();
-        consume(SEMICOLON, "Expected ';' after loop condition");
+        consume(SEMICOLON, "Cần ';' sau điều kiện lặp");
         
         std::shared_ptr<Expr> increment = nullptr;
         if (!check(RIGHT_PAREN)) // clause not omitted
             increment = expression();
-        consume(RIGHT_PAREN, "Expected ')' after 'for' clauses");
+        consume(RIGHT_PAREN, "Cần ')' sau mệnh đề của câu lệnh 'for'");
 
         std::shared_ptr<Stmt> body = statement();
         if (increment != nullptr)
@@ -148,9 +148,9 @@ std::shared_ptr<Stmt> Parser::while_statement()
     {
         loop_depth++;
 
-        consume(LEFT_PAREN, "Expected '(' after 'while' statement");
+        consume(LEFT_PAREN, "Cần '(' sau câu lệnh 'while'");
         std::shared_ptr<Expr> condition = expression();
-        consume(RIGHT_PAREN, "Expected ')' after 'while' condition");
+        consume(RIGHT_PAREN, "Cần ')' sau điều kiện của 'while'");
         std::shared_ptr<Stmt> body = statement();
 
         return std::make_shared<WhileStmt>(condition, body);
@@ -171,7 +171,7 @@ std::shared_ptr<Stmt> Parser::return_statement()
     
     if (!check(SEMICOLON))
         value = expression();
-    consume(SEMICOLON, "Expected ';' after return value");
+    consume(SEMICOLON, "Cần ';' sau giá trị trả về");
 
     return std::make_shared<ReturnStmt>(keyword, value);
 }
@@ -179,8 +179,8 @@ std::shared_ptr<Stmt> Parser::return_statement()
 std::shared_ptr<Stmt> Parser::break_statement()
 {
     if (loop_depth == 0)
-        error(previous(), "Must be inside a loop to use 'break'");
-    consume(SEMICOLON, "Expected ';' after 'break'");
+        error(previous(), "Cần ở trong vòng lặp để dùng câu lệnh 'break'");
+    consume(SEMICOLON, "Cần ';' sau câu lệnh 'break'");
 
     return std::make_shared<BreakStmt>();
 }
@@ -192,7 +192,7 @@ std::shared_ptr<Stmt> Parser::expression_statement()
     if (allow_expression && is_at_end())
         found_expression = true;
     else
-        consume(SEMICOLON, "Expected ';' after expression");
+        consume(SEMICOLON, "Cần ';' sau biểu thực");
 
     return std::make_shared<ExpressionStmt>(expr);
 }
@@ -204,7 +204,7 @@ std::vector<std::shared_ptr<Stmt>> Parser::block()
     while (!check(RIGHT_BRACE) && !is_at_end())
         statements.push_back(declaration());
 
-    consume(RIGHT_BRACE, "Expected '}' after block");
+    consume(RIGHT_BRACE, "Cần '}' sau khối câu lệnh");
 
     return statements;
 }
@@ -233,25 +233,25 @@ std::shared_ptr<Stmt> Parser::declaration()
 
 std::shared_ptr<Stmt> Parser::var_declaration()
 {
-    Token name = consume(IDENTIFIER, "Expected variable name");
+    Token name = consume(IDENTIFIER, "Cần tên biến");
 
     std::shared_ptr<Expr> initializer = nullptr;
     if (match(EQUAL))
         initializer = expression();
 
-    consume(SEMICOLON, "Expected ';' after variable declaration");
+    consume(SEMICOLON, "Cần ';' sau định nghĩa biến");
     return std::make_shared<VarStmt>(std::move(name), initializer);
 }
 
 std::shared_ptr<FunctionStmt> Parser::function(std::string kind)
 {
-    Token name = consume(IDENTIFIER, "Expected " + kind + " name");
+    Token name = consume(IDENTIFIER, "Cần tên " + kind);
     return std::make_shared<FunctionStmt>(name, function_body(kind));
 }
 
 std::shared_ptr<FunctionExpr> Parser::function_body(std::string kind)
 {
-    consume(LEFT_PAREN, "Expected '(' after " + kind + " name");
+    consume(LEFT_PAREN, "Cần '(' sau tên " + kind);
 
     std::vector<Token> parameters;
     if (!check(RIGHT_PAREN))
@@ -259,14 +259,14 @@ std::shared_ptr<FunctionExpr> Parser::function_body(std::string kind)
         do
         {
             if (parameters.size() >= 255)
-                error(peek(), "Can't have more than 255 parameters.");
+                error(peek(), "Không thể có hơn 255 tham số");
 
-            parameters.push_back(consume(IDENTIFIER, "Expected parameter name"));
+            parameters.push_back(consume(IDENTIFIER, "Cần tên tham số"));
         } while (match(COMMA));
     }
-    consume(RIGHT_PAREN, "Expected ')' after parameters");
+    consume(RIGHT_PAREN, "Cần ')' sau tham số");
 
-    consume(LEFT_BRACE, "Expected '{' before " + kind + " body");
+    consume(LEFT_BRACE, "Cần '{' trước khối " + kind);
     std::vector<std::shared_ptr<Stmt>> body = block();
 
     return std::make_shared<FunctionExpr>(std::move(parameters), std::move(body));
@@ -274,22 +274,22 @@ std::shared_ptr<FunctionExpr> Parser::function_body(std::string kind)
 
 std::shared_ptr<Stmt> Parser::class_declaration()
 {
-    Token name = consume(IDENTIFIER, "Expected class name");
+    Token name = consume(IDENTIFIER, "Cần tên lớp");
 
     std::shared_ptr<VarExpr> superclass = nullptr;
     if (match(COLON))
     {
-        consume(IDENTIFIER, "Expected superclass name");
+        consume(IDENTIFIER, "Cần tên lớp cha");
         superclass = std::make_shared<VarExpr>(previous());
     }
 
-    consume(LEFT_BRACE, "Expected '{' before class body");
+    consume(LEFT_BRACE, "Cần '{' trước khối của lớp");
     std::vector<std::shared_ptr<FunctionStmt>> methods;
 
     while (!check(RIGHT_BRACE) && !is_at_end())
         methods.push_back(function("method"));
 
-    consume(RIGHT_BRACE, "Expected '}' after class body");
+    consume(RIGHT_BRACE, "Cần '}' sau khối của lớp");
 
     return std::make_shared<ClassStmt>(std::move(name), std::move(superclass), std::move(methods));
 }
@@ -319,7 +319,7 @@ std::shared_ptr<Expr> Parser::assignment()
             return std::make_shared<SubscriptExpr>(name, s->paren, index, value);
         }
 
-        Error::error(std::move(equals), "Invalid assignment target");
+        Error::error(std::move(equals), "Đối tượng gán không hợp lệ");
     }
 
     return expr;
@@ -443,7 +443,7 @@ std::shared_ptr<Expr> Parser::unary()
 std::shared_ptr<Expr> Parser::finish_subscript(std::shared_ptr<Expr> name)
 {
     std::shared_ptr<Expr> index = or_expression();
-    Token paren = consume(RIGHT_BRACKET, "Expected ']' after arguments");
+    Token paren = consume(RIGHT_BRACKET, "Cần ']' sau tham số");
     return std::make_shared<SubscriptExpr>(name, paren, index, nullptr);
 }
 
@@ -471,13 +471,13 @@ std::shared_ptr<Expr> Parser::finish_call(std::shared_ptr<Expr> callee)
         do
         {
             if (arguments.size() >= 255)
-                error(peek(), "Can't have more than 255 arguments");
+                error(peek(), "Không thể có hơn 255 tham số");
 
             arguments.push_back(expression());
         } while (match(COMMA));
     }
 
-    Token paren = consume(RIGHT_PAREN, "Expected ')' after arguments");
+    Token paren = consume(RIGHT_PAREN, "Cần ')' sau các tham số");
 
     return std::make_shared<CallExpr>(callee, std::move(paren), std::move(arguments));
 }
@@ -494,7 +494,7 @@ std::shared_ptr<Expr> Parser::call()
         }
         else if (match(DOT))
         {
-            Token name = consume(IDENTIFIER, "Expected property name after '.'");
+            Token name = consume(IDENTIFIER, "Cần tên thuộc tính sau '.'");
             expr = std::make_shared<GetExpr>(expr, std::move(name));
         }
         else if (match(LEFT_BRACKET)) // handle subscript
@@ -519,7 +519,7 @@ std::shared_ptr<Expr> Parser::list_expression()
         do
         {
             if (values.size() >= 255)
-                error(peek(), "Can't have more than 255 elements in a list");
+                error(peek(), "Không thể có hơn 255 yếu tố trong 1 danh sách");
 
             std::shared_ptr<Expr> value = or_expression();
             values.push_back(value);
@@ -530,7 +530,7 @@ std::shared_ptr<Expr> Parser::list_expression()
         return std::make_shared<ListExpr>(values);
     }
 
-    consume(RIGHT_BRACKET, "Expected ']' at the end of a list");
+    consume(RIGHT_BRACKET, "Cần ']' ở cuối danh sách");
     return std::make_shared<ListExpr>(values);
 }
 
@@ -563,19 +563,19 @@ std::shared_ptr<Expr> Parser::primary()
     if (match(SUPER))
     {
         Token keyword = previous();
-        consume(DOT, "Expected '.' after 'super'");
-        Token method = consume(IDENTIFIER, "Expected superclass method name");
+        consume(DOT, "Cần '.' sau câu lệnh 'super'");
+        Token method = consume(IDENTIFIER, "Cần tên hàm trong lớp cha");
         return std::make_shared<SuperExpr>(std::move(keyword), std::move(method));
     }
 
     if (match(LEFT_PAREN))
     {
         std::shared_ptr<Expr> expr = expression();
-        consume(RIGHT_PAREN, "Expect ')' after expression");
+        consume(RIGHT_PAREN, "Cần ')' sau biểu thức");
         return std::make_shared<GroupingExpr>(expr);
     }
 
-    throw error(peek(), "Expected an expression");
+    throw error(peek(), "Cần 1 biểu thức");
 }
 
 // check if current token as any type

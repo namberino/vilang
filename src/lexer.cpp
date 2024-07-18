@@ -103,7 +103,7 @@ void Lexer::string()
     // unterminated string
     if (is_at_end())
     {
-        Error::error(line, "Unterminated string");
+        Error::error(line, "Chuỗi chưa được đóng");
         return;
     }
 
@@ -222,7 +222,7 @@ void Lexer::scan_token()
             else if (std::isalpha(c) || c == '_' ||  (c & 0x80) != 0) // handle identifiers
                 identifier();
             else
-                Error::error(line, std::string("Unexpected character: ") + "'" + c + "'");
+                Error::error(line, std::string("Kí tự không hợp lệ: ") + "'" + c + "'");
 
             break;
     }

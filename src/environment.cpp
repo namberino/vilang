@@ -17,7 +17,7 @@ std::any Environment::get(const Token& name)
     if (enclosing != nullptr)
         return enclosing->get(name);
 
-    throw RuntimeError(name, "Undefined variable: '" + name.lexeme + "'");
+    throw RuntimeError(name, "Biến chưa được định nghĩa: '" + name.lexeme + "'");
 }
 
 void Environment::assign(const Token& name, std::any value)
@@ -36,7 +36,7 @@ void Environment::assign(const Token& name, std::any value)
         return;
     }
 
-    throw RuntimeError(name, "Undefined variable: '" + name.lexeme + "'");
+    throw RuntimeError(name, "Biến chưa được định nghĩa: '" + name.lexeme + "'");
 }
 
 void Environment::define(const std::string& name, std::any value)

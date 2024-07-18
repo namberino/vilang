@@ -49,7 +49,7 @@ std::any Resolver::visitVarExpr(std::shared_ptr<VarExpr> expr)
         auto element = current_scope.find(expr->name.lexeme);
 
         if (element != current_scope.end() && element->second == false)
-            Error::error(expr->name, "Can't read local variable in its initializer");
+            Error::error(expr->name, "Không thể đọc biến local trong hàm tạo của chính nó");
 
     }
     resolve_local(expr, expr->name);
@@ -96,7 +96,7 @@ std::any Resolver::visitThisExpr(std::shared_ptr<ThisExpr> expr)
 {
     if (current_class == ClassType::NONE)
     {
-        Error::error(expr->keyword, "Can't use 'this' outside of a class");
+        Error::error(expr->keyword, "Không thể dùng câu lệnh 'đây' ở ngoài 1 lớp");
         return {};
     }
     resolve_local(expr, expr->keyword);
@@ -109,9 +109,9 @@ std::any Resolver::visitSuperExpr(std::shared_ptr<SuperExpr> expr)
 {
     // check if we're currently in a scope where super is allowed
     if (current_class == ClassType::NONE)
-        Error::error(expr->keyword, "Can't use 'super' outside a class");
+        Error::error(expr->keyword, "Không thể dùng câu lệnh 'super' ở ngoài 1 lớp");
     else if (current_class != ClassType::SUBCLASS)
-        Error::error(expr->keyword, "Can't use 'super' in a class with no superclass");
+        Error::error(expr->keyword, "Không thể dùng câu lệnh 'super' trong 1 lớp không có lớp cha");
 
     resolve_local(expr, expr->keyword);
     return {};
@@ -196,12 +196,12 @@ std::any Resolver::visitFunctionStmt(std::shared_ptr<FunctionStmt> stmt)
 std::any Resolver::visitReturnStmt(std::shared_ptr<ReturnStmt> stmt)
 {
     if (current_func == FunctionType::NONE)
-        Error::error(stmt->keyword, "Can't return from top-level code");
+        Error::error(stmt->keyword, "Không thể dùng câu lệnh 'trả' ở level cao nhất trong code");
 
     if (stmt->value != nullptr)
     {
         if (current_func == FunctionType::INITIALIZER)
-            Error::error(stmt->keyword, "Can't return a value from an initializer");
+            Error::error(stmt->keyword, "Không thể trả về giá trị từ hàm tạo");
         resolve(stmt->value);
     }
 
@@ -222,7 +222,7 @@ std::any Resolver::visitClassStmt(std::shared_ptr<ClassStmt> stmt)
     define(stmt->name);
 
     if (stmt->superclass != nullptr && stmt->name.lexeme == stmt->superclass->name.lexeme)
-        Error::error(stmt->superclass->name, "Classes can't inherit from themselves");
+        Error::error(stmt->superclass->name, "Lớp không thể kế thừa từ chính nó");
     
     if (stmt->superclass != nullptr)
     {
@@ -304,7 +304,7 @@ void Resolver::declare(const Token& name)
     std::map<std::string, bool>& scope = scopes.back();
 
     if (scope.find(name.lexeme) != scope.end())
-        Error::error(name, "Already a variable with this name in this scope");
+        Error::error(name, "Đã có biến với tên này trong scope này");
     scope[name.lexeme] = false;
 }
 

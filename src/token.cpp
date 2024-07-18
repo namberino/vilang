@@ -28,7 +28,7 @@ std::string Token::to_string() const
             literal_text = "không";
     }
 
-    return "Type: " + ::token_to_string(type) + " | Lexeme: " + lexeme + " | Literal: " + literal_text;
+    return "Kiểu: " + ::token_to_string(type) + " | Tên: " + lexeme + " | Giá trị: " + literal_text;
 } 
 
 std::string token_to_string(TokenType type)

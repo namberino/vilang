@@ -37,15 +37,15 @@ int main(int argc, char* argv[])
 
         if (point != NULL)
         {
-            if (strcmp(point, ".nbl") != 0 && strcmp(point, ".nimble") != 0) // ends with nbl
+            if (strcmp(point, ".nbl") != 0) // ends with nbl
             {
-                std::cout << "Invalid file extension, please use '.nbl'\n";
+                std::cout << "Định dạng file không hợp lệ, cần dùng file định dạng '.nbl''\n";
                 exit(1);
             }
         }
         else
         {
-            std::cout << "Invalid file extension, please use '.nbl'\n";
+            std::cout << "Định dạng file không hợp lệ, cần dùng file định dạng '.nbl'\n";
             exit(1);
         }
 
@@ -122,7 +122,7 @@ void run_prompt()
 
             if (Error::has_error) // syntax error
             {
-                std::cout << "Invalid syntax error\n";
+                std::cout << "Syntax không hợp lệ\n";
                 continue;
             }
 

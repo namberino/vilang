@@ -13,7 +13,7 @@ std::any NativeClock::call(Interpreter& interpreter, std::vector<std::any> args)
 
 std::string NativeClock::to_string()
 {
-    return "<native clock>";
+    return "<hàm clock>";
 }
 
 
@@ -30,7 +30,7 @@ std::any NativeTime::call(Interpreter& interpreter, std::vector<std::any> args)
 
 std::string NativeTime::to_string()
 {
-    return "<native time>";
+    return "<hàm time>";
 }
 
 
@@ -59,7 +59,7 @@ std::any NativeInput::call(Interpreter& interpreter, std::vector<std::any> args)
 
 std::string NativeInput::to_string()
 {
-    return "<native input>";
+    return "<hàm input>";
 }
 
 
@@ -78,7 +78,7 @@ std::any NativeExit::call(Interpreter& interpreter, std::vector<std::any> args)
 
 std::string NativeExit::to_string()
 {
-    return "<native exit>";
+    return "<hàm exit>";
 }
 
 
@@ -95,5 +95,5 @@ std::any NativeFloorDiv::call(Interpreter& interpreter, std::vector<std::any> ar
 
 std::string NativeFloorDiv::to_string()
 {
-    return "<native floordiv>";
+    return "<hàm floordiv>";
 }

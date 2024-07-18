@@ -5,7 +5,7 @@ bool Error::has_runtime_error = false;
 
 void Error::report(int line, const std::string& where, const std::string& msg)
 {
-    std::cout << "On line: " + std::to_string(line) + ", Error" + where + ": " + msg + "\n";
+    std::cout << "Dòng: " + std::to_string(line) + ", Lỗi tại" + where + ": " + msg + "\n";
     has_error = true;
 }
 
@@ -17,9 +17,9 @@ void Error::error(int line, const std::string& msg)
 void Error::error(const Token& token, std::string msg)
 {
     if (token.type == TOKEN_EOF)
-        report(token.line, " at end", msg);
+        report(token.line, " ở cuối", msg);
     else
-        report(token.line, " at '" + token.lexeme + "'", msg);
+        report(token.line, " ở '" + token.lexeme + "'", msg);
 }
 
 RuntimeError::RuntimeError(const Token& token, std::string msg)
@@ -28,6 +28,6 @@ RuntimeError::RuntimeError(const Token& token, std::string msg)
 
 void Error::runtime_error(const RuntimeError& error)
 {
-    std::cout << error.what() << "\nOn line " << error.token.line << "\n";
+    std::cout << error.what() << "\nDòng " << error.token.line << "\n";
     has_runtime_error = true;
 }

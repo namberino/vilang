@@ -129,7 +129,7 @@ std::any Interpreter::visitClassStmt(std::shared_ptr<ClassStmt> stmt)
         superclass = evaluate(stmt->superclass);
 
         if (superclass.type() != typeid(std::shared_ptr<NblClass>))
-            throw RuntimeError(stmt->superclass->name, "Superclass must be a class");
+            throw RuntimeError(stmt->superclass->name, "Lớp cha cần là lớp hợp lệ");
     }
 
     environment->define(stmt->name.lexeme, nullptr);
@@ -224,7 +224,7 @@ std::any Interpreter::visitBinaryExpr(std::shared_ptr<BinaryExpr> expr)
             if (left.type() == typeid(double) && right.type() == typeid(std::string))
                 return std::to_string(std::any_cast<double>(left)) + std::any_cast<std::string>(right);
 
-            throw RuntimeError{expr->op, "Operands must be 2 numbers, 2 strings, or 1 number and 1 string"};
+            throw RuntimeError{expr->op, "Phần tử phải là 2 số, 2 chuỗi, hoặc 1 số và 1 chuỗi"};
         case MINUS:
             if (left.type() == typeid(double) && right.type() == typeid(double))
                 return std::any_cast<double>(left) - std::any_cast<double>(right);
@@ -347,11 +347,11 @@ std::any Interpreter::visitCallExpr(std::shared_ptr<CallExpr> expr)
     }
     else
     {
-        throw RuntimeError(expr->paren, "Can only call functions");
+        throw RuntimeError(expr->paren, "Chỉ có thể được gọi hàm");
     }
 
     if (arguments.size() != function->arity())
-        throw RuntimeError(expr->paren, "Expected " + std::to_string(function->arity()) + " arguments but got " + std::to_string(arguments.size()));
+        throw RuntimeError(expr->paren, "Cần " + std::to_string(function->arity()) + " tham số nhưng chỉ có " + std::to_string(arguments.size()));
 
     return function->call(*this, std::move(arguments));
 }
@@ -368,7 +368,7 @@ std::any Interpreter::visitGetExpr(std::shared_ptr<GetExpr> expr)
     if (object.type() == typeid(std::shared_ptr<NblInstance>))
         return std::any_cast<std::shared_ptr<NblInstance>>(object)->get(expr->name);
 
-    throw RuntimeError(expr->name, "Only instances have properties");
+    throw RuntimeError(expr->name, "Chỉ đối tượng mới có thuộc tính");
 }
 
 std::any Interpreter::visitSetExpr(std::shared_ptr<SetExpr> expr)
@@ -376,7 +376,7 @@ std::any Interpreter::visitSetExpr(std::shared_ptr<SetExpr> expr)
     std::any object = evaluate(expr->object);
 
     if (object.type() != typeid(std::shared_ptr<NblInstance>))
-        throw RuntimeError(expr->name, "Only instances have fields");
+        throw RuntimeError(expr->name, "Chỉ đối tượng mới có trường dữ liệu");
 
     std::any value = evaluate(expr->value);
     std::any_cast<std::shared_ptr<NblInstance>>(object)->set(expr->name, value);
@@ -393,11 +393,11 @@ std::any Interpreter::visitSuperExpr(std::shared_ptr<SuperExpr> expr)
 {
     int distance = locals[expr];
     auto superclass = std::any_cast<std::shared_ptr<NblClass>>(environment->get_at(distance, "super"));
-    auto obj = std::any_cast<std::shared_ptr<NblInstance>>(environment->get_at(distance - 1, "this"));
+    auto obj = std::any_cast<std::shared_ptr<NblInstance>>(environment->get_at(distance - 1, "đây"));
     std::shared_ptr<NblFunction> method = superclass->find_method(expr->method.lexeme);
 
     if (method == nullptr) // can't find method
-        throw RuntimeError(expr->method, "Undefined property '" + expr->method.lexeme + "'");
+        throw RuntimeError(expr->method, "Thuộc tính chưa được định nghĩa: '" + expr->method.lexeme + "'");
 
     return method->bind(obj);
 }
@@ -431,7 +431,7 @@ std::any Interpreter::visitSubscriptExpr(std::shared_ptr<SubscriptExpr> expr)
                 if (list->set_element_at(casted_index, value))
                     return value;
                 else
-                    throw RuntimeError(expr->paren, "Index out of range");
+                    throw RuntimeError(expr->paren, "Index vượt quá phạm vi");
             }
             else
             {
@@ -443,12 +443,12 @@ std::any Interpreter::visitSubscriptExpr(std::shared_ptr<SubscriptExpr> expr)
         }
         else
         {
-            throw RuntimeError(expr->paren, "Index should be of type int");
+            throw RuntimeError(expr->paren, "Index cần là số nguyên");
         }
     }
     else
     {
-        throw RuntimeError(expr->paren, "Only lists can be subscripted");
+        throw RuntimeError(expr->paren, "Chỉ danh sách mới có thể được subscript");
     }
 
     return {};
@@ -506,7 +506,7 @@ void Interpreter::check_num_operand(const Token& op, const std::any& operand)
     if (operand.type() == typeid(double))
         return;
     
-    throw RuntimeError{op, "Operand must be a number"};
+    throw RuntimeError{op, "Phần tử cần là 1 số"};
 }
 
 void Interpreter::check_num_operands(const Token& op, const std::any& left, const std::any& right)
@@ -514,7 +514,7 @@ void Interpreter::check_num_operands(const Token& op, const std::any& left, cons
     if (left.type() == typeid(double) && right.type() == typeid(double))
         return;
     
-    throw RuntimeError{op, "Operands must be numbers"};
+    throw RuntimeError{op, "Các phần tử cần là số"};
 }
 
 bool Interpreter::is_truthy(const std::any& obj)
@@ -567,7 +567,7 @@ std::string Interpreter::stringify(const std::any& obj)
         return std::any_cast<std::string>(obj);
 
     if (obj.type() == typeid(bool))
-        return std::any_cast<bool>(obj) ? "true" : "false";
+        return std::any_cast<bool>(obj) ? "đúng" : "sai";
     
     if (obj.type() == typeid(std::shared_ptr<NblFunction>))
         return std::any_cast<std::shared_ptr<NblFunction>>(obj)->to_string();
@@ -613,5 +613,5 @@ std::string Interpreter::stringify(const std::any& obj)
         return result;
     }
 
-    return "Error in stringify: Invalid object type";
+    return "Lỗi trong hàm stringify: Loại đối tượng không hợp lệ";
 }

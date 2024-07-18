@@ -42,5 +42,5 @@ std::any NblFunction::call(Interpreter& interpreter, std::vector<std::any> argum
 
 std::string NblFunction::to_string()
 {
-    return name != "" ? "<func " + name + ">" : "<func lambda>";
+    return name != "" ? "<hàm " + name + ">" : "<hàm lambda>";
 }
