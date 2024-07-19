@@ -11,9 +11,9 @@ EXPECTED_FILES = $(patsubst %.nbl, %.nbl.expected, $(NBL_FILES))
 DEBUG_FLAG = -g
 CFLAGS = -std=c++20 -Wall -Werror -pedantic -Iinclude
 
-compile: bin/nimble
+compile: bin/nblang
 
-bin/nimble: $(OBJ) | bin
+bin/nblang: $(OBJ) | bin
 	"$(CC)" -o $@ $(OBJ)
 
 bin:
@@ -26,7 +26,7 @@ obj:
 	mkdir -p obj
 
 run: compile
-	./bin/nimble
+	./bin/nblang
 
 clean:
 	rm -f bin/* obj/*.o
