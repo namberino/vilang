@@ -2,6 +2,8 @@
 
 This is a programming language with support for Vietnamese syntaxes.
 
+Example program:
+
 ```nblang
 lớp Tree
 {
