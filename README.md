@@ -2,7 +2,7 @@
 
 This is a programming language with support for Vietnamese syntaxes.
 
-Example program:
+## Syntax
 
 ```nblang
 lớp Tree
@@ -37,3 +37,7 @@ lớp Tree
     }
 }
 ```
+
+## Building and running
+
+You can build this by running `make compile` and run this by running `./bin/nblang <filename>.nbl`
