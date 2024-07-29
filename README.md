@@ -1,6 +1,8 @@
 # NBLang: The Vietnamese Programming Language
 
-This is a fork of the [NIMBLE](https://github.com/namberino/nimble) interpreter. This fork aims to implement the NIMBLE programming language but with Vietnamese syntax
+This is a programming language with support for Vietnamese syntaxes.
+
+## Syntax
 
 ```nblang
 lớp Tree
@@ -35,3 +37,7 @@ lớp Tree
     }
 }
 ```
+
+## Building and running
+
+You can build this by running `make compile` and run this by running `./bin/nblang <filename>.nbl`
