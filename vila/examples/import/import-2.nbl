@@ -1,0 +1,33 @@
+import "core:math";
+
+mut angle = PI / 3;
+
+mut sn = sin(angle);
+print("Sine result of PI / 3: " + sn);
+
+mut cs = cos(angle);
+print("Cosine result of PI / 3: " + cs);
+
+mut tn = tan(angle);
+print("Tangent result of PI / 3: " + tn);
+
+mut ct = cot(angle);
+print("Cotangent result of PI / 3: " + ct);
+
+mut ep = exp(1); // e^1
+print("Exponentiation result of e^1: " + ep);
+
+mut lne = ln(2.718281828459);
+print("Natural log result of ln(e): " + lne);
+
+mut logt = log10(100);
+print("Log (base 10) result of log10(100): " + logt);
+
+mut logtw = log2(10);
+print("Log (base 2) result of log2(10): " + logtw);
+
+mut logn = log(8, 2);
+print("Log result of log2(8): " + logn);
+
+mut sq = sqrt(16);
+print("Square root result of sqrt(16): " + sq);

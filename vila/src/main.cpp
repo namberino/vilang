@@ -1,0 +1,46 @@
+//------------------------------------//
+// Copyright 2024 Nam Nguyen
+// Licensed under Apache License v2.0
+//------------------------------------//
+
+#include <iostream>
+
+#include "util.hpp"
+
+Interpreter interpreter{};
+
+int main(int argc, char* argv[])
+{
+    if (argc > 2) // too many arguments
+    {
+        std::cout << "Cách dùng: nimble <script>.nbl\n";
+        exit(1);
+    }
+    else if (argc == 2) // run script file
+    {
+        char* point = strrchr(argv[1], '.');
+
+        if(point != NULL)
+        {
+            if(strcmp(point, ".nbl") != 0 && strcmp(point, ".nimble") != 0) // ends with nbl
+            {
+                std::cout << "Định dạng file không hợp lệ, xin hãy dùng file với định dạng '.nbl'\n";
+                exit(1);
+            }
+        }
+        else
+        {
+            std::cout << "Định dạng file không hợp lệ, xin hãy dùng file với định dạng '.nbl'\n";
+            exit(1);
+        }
+
+        run_file(argv[1], interpreter);
+    }
+    else // run interactive mode
+    {
+        run_prompt(interpreter);
+        // prompt_load("./example/function/function-8.nbl");
+    }
+
+    return 0;
+}

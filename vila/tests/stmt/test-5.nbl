@@ -1,0 +1,8 @@
+// no initializers
+mut a;
+mut b;
+
+a = "assigned";
+
+print(a); // works
+print(b); // error

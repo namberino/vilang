@@ -1,0 +1,322 @@
+//------------------------------------//
+// Copyright 2024 Nam Nguyen
+// Licensed under Apache License v2.0
+//------------------------------------//
+
+// Null character
+mut NULL = 0;
+
+// Backspace
+mut BACKSPACE = 8;
+
+// horizontal tab
+mut HORI_TAB = 9;
+
+// line feed
+mut LINE_FEED = 10;
+
+// vertical tab
+mut VERT_TAB = 11;
+
+// form feed
+mut FORM_FEED = 12;
+
+// carriage return
+mut CAR_RET = 13;
+
+// cancel
+mut CANCEL = 24;
+
+// substitute
+mut SUBSTITUTE = 26;
+
+// escape
+mut ESCAPE = 27;
+
+// delete
+mut DEL = 31;
+
+// space
+mut SPACE = 32;
+
+// '0'
+mut ZERO = 48;
+
+// '1'
+mut ONE = 49;
+
+// '2'
+mut TWO = 50;
+
+// '3'
+mut THREE = 51;
+
+// '4'
+mut FOUR = 52;
+
+// '5'
+mut FIVE = 53;
+
+// '6'
+mut SIX = 54;
+
+// '7'
+mut SEVEN = 55;
+
+// '8'
+mut EIGHT = 56;
+
+// '9'
+mut NINE = 57;
+
+// 'A'
+mut ASCII_A = 65;
+
+// 'B'
+mut ASCII_B = 66;
+
+// 'C'
+mut ASCII_C = 67;
+
+// 'D'
+mut ASCII_D = 68;
+
+// 'E'
+mut ASCII_E = 69;
+
+// 'F'
+mut ASCII_F = 70;
+
+// 'G'
+mut ASCII_G = 71;
+
+// 'H'
+mut ASCII_H = 72;
+
+// 'I'
+mut ASCII_I = 73;
+
+// 'J'
+mut ASCII_J = 74;
+
+// 'K'
+mut ASCII_K = 75;
+
+// 'L'
+mut ASCII_L = 76;
+
+// 'M'
+mut ASCII_M = 77;
+
+// 'N'
+mut ASCII_N = 78;
+
+// 'O'
+mut ASCII_O = 79;
+
+// 'P'
+mut ASCII_P = 80;
+
+// 'Q'
+mut ASCII_Q = 81;
+
+// 'R'
+mut ASCII_R = 82;
+
+// 'S'
+mut ASCII_S = 83;
+
+// 'T'
+mut ASCII_T = 84;
+
+// 'U'
+mut ASCII_U = 85;
+
+// 'V'
+mut ASCII_V = 86;
+
+// 'W'
+mut ASCII_W = 87;
+
+// 'X'
+mut ASCII_X = 88;
+
+// 'Y'
+mut ASCII_Y = 89;
+
+// 'Z'
+mut ASCII_Z = 90;
+
+// 'a'
+mut ASCII_a = 97;
+
+// 'b'
+mut ASCII_b = 98;
+
+// 'c'
+mut ASCII_c = 99;
+
+// 'd'
+mut ASCII_d = 100;
+
+// 'e'
+mut ASCII_e = 101;
+
+// 'f'
+mut ASCII_f = 102;
+
+// 'g'
+mut ASCII_g = 103;
+
+// 'h'
+mut ASCII_h = 104;
+
+// 'i'
+mut ASCII_i = 105;
+
+// 'j'
+mut ASCII_j = 106;
+
+// 'k'
+mut ASCII_k = 107;
+
+// 'l'
+mut ASCII_l = 108;
+
+// 'm'
+mut ASCII_m = 109;
+
+// 'n'
+mut ASCII_n = 110;
+
+// 'o'
+mut ASCII_o = 111;
+
+// 'p'
+mut ASCII_p = 112;
+
+// 'q'
+mut ASCII_q = 113;
+
+// 'r'
+mut ASCII_r = 114;
+
+// 's'
+mut ASCII_s = 115;
+
+// 't'
+mut ASCII_t = 116;
+
+// 'u'
+mut ASCII_u = 117;
+
+// 'v'
+mut ASCII_v = 118;
+
+// 'w'
+mut ASCII_w = 119;
+
+// 'x'
+mut ASCII_x = 120;
+
+// 'y'
+mut ASCII_y = 121;
+
+// 'z'
+mut ASCII_z = 122;
+
+// '{'
+mut LEFT_BRACE = 123;
+
+// '|'
+mut PIPE = 124;
+
+// '}'
+mut RIGHT_BRACE = 125;
+
+// '~'
+mut TILDE = 126;
+
+// '['
+mut LEFT_BRACKET = 91;
+
+// ']'
+mut RIGHT_BRACKET = 93;
+
+// '\'
+mut BACKSLASH = 92;
+
+// '/'
+mut SLASH = 47;
+
+// '^'
+mut HAT = 94;
+
+// '_'
+mut UNDERSCORE = 95;
+
+// '`'
+mut BACKQUOTE = 96;
+
+// ':'
+mut COLON = 58;
+
+// ';'
+mut SEMICOLON = 59;
+
+// '<'
+mut LEFT_ARROW = 60;
+
+// '='
+mut EQUAL = 61;
+
+// '>'
+mut RIGHT_ARROW = 62;
+
+// '?'
+mut QUESTION = 63;
+
+// '@'
+mut AT = 64;
+
+// '!'
+mut EXCLAMATION = 33;
+
+// '"'
+mut QUOTE = 34;
+
+// '#'
+mut HASH = 35;
+
+// '$'
+mut DOLLAR = 36;
+
+// '%'
+mut PERCENT = 37;
+
+// '&'
+mut AMPERSAND = 38;
+
+// "'"
+mut APOSTROPHE = 39;
+
+// '('
+mut LEFT_PAREN = 40;
+
+// ')'
+mut RIGHT_PAREN = 41;
+
+// '*'
+mut ASTERISK = 42;
+
+// '+'
+mut PLUS = 43;
+
+// ','
+mut COMMA = 44;
+
+// '-'
+mut DASH = 45;
+
+// '.'
+mut DOT = 46;

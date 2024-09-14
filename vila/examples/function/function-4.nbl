@@ -1,0 +1,21 @@
+fun loop()
+{
+    mut n = 10;
+
+    while (true)
+    {
+        if (n <= 2)
+        {
+            break;
+        }
+
+        print(n);
+        n -= 1;
+    }
+
+    return n;
+}
+
+mut n = loop();
+
+print("Output of the function: " + n);

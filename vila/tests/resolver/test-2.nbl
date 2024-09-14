@@ -1,0 +1,4 @@
+mut test = "test";
+{
+    mut test = test; // error
+}

@@ -1,0 +1,14 @@
+mut test = 17;
+
+if (test == 18)
+{
+    print("Barely Adult");
+}
+else if (test >= 18)
+{
+    print("Adult");
+}
+else
+{
+    print("Underage");
+}

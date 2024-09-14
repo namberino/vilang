@@ -1,0 +1,6 @@
+mut name = input("Enter your name: ");
+mut age = input("Enter your age: ");
+
+mut birth_year = 2024 - age;
+
+print("Name: " + name + " | Birth year: " + birth_year);

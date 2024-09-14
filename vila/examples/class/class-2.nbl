@@ -1,0 +1,5 @@
+class Donut {}
+
+mut donut = Donut();
+
+print(donut);

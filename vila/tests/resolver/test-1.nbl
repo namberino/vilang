@@ -1,0 +1,11 @@
+mut a = "global";
+{
+    fun show_a()
+    {
+        print(a);
+    }
+
+    show_a(); // global
+    mut a = "block";
+    show_a(); // global
+}

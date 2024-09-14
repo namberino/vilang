@@ -1,0 +1,6 @@
+mut a = "hello";
+print(a); // hello
+mut a = "world";
+print(a); // world
+mut c;
+print(c); // "nil".

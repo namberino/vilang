@@ -1,0 +1,19 @@
+mut a = "global a";
+mut b = "global b";
+mut c = "global c";
+{
+  mut a = "outer a";
+  mut b = "outer b";
+  {
+    mut a = "inner a";
+    print(a);
+    print(b);
+    print(c);
+  }
+  print(a);
+  print(b);
+  print(c);
+}
+print(a);
+print(b);
+print(c);

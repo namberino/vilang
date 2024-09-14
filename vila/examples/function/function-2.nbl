@@ -1,0 +1,26 @@
+// fibonacci function
+fun fib(n)
+{
+    if (n <= 1)
+    {
+        return n;
+    }
+
+    return fib(n - 2) + fib(n - 1);
+}
+
+mut li = [];
+
+for (mut i = 0; i < 20; i += 1)
+{
+    li[i] = fib(i);
+}
+
+print(li);
+
+mut test = [1, 2, 3];
+
+for (mut i = 0; i < 4; i += 1)
+{
+    print(test[i]);
+}

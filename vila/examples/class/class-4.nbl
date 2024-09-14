@@ -1,0 +1,12 @@
+class Animal 
+{
+    say()
+    {
+        print("I'm an animal");
+    }
+}
+
+Animal().say();
+
+mut method = Animal().say;
+method();
