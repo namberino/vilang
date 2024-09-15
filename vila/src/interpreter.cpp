@@ -8,12 +8,12 @@
 Interpreter::Interpreter()
 {
     // native functions
-    globals->define("clock", std::make_shared<NativeClock>());
-    globals->define("time", std::make_shared<NativeTime>());
-    globals->define("input", std::make_shared<NativeInput>());
-    globals->define("exit", std::make_shared<NativeExit>());
-    globals->define("floordiv", std::make_shared<NativeFloorDiv>());
-    globals->define("len", std::make_shared<NativeArrayLen>());
+    globals->define("đồng_hồ", std::make_shared<NativeClock>());
+    globals->define("thời_gian", std::make_shared<NativeTime>());
+    globals->define("đầu_vào", std::make_shared<NativeInput>());
+    globals->define("thoát", std::make_shared<NativeExit>());
+    globals->define("chia_nguyên", std::make_shared<NativeFloorDiv>());
+    globals->define("độ_dài", std::make_shared<NativeArrayLen>());
 }
 
 void Interpreter::interpret(const std::vector<std::shared_ptr<Stmt>>& statements)
@@ -156,7 +156,7 @@ std::any Interpreter::visitClassStmt(std::shared_ptr<ClassStmt> stmt)
     if (stmt->superclass != nullptr)
     {
         environment = std::make_shared<Environment>(environment);
-        environment->define("super", superclass);
+        environment->define("gốc", superclass);
     }
 
     std::map<std::string, std::shared_ptr<NblFunction>> methods;
@@ -428,8 +428,8 @@ std::any Interpreter::visitSuperExpr(std::shared_ptr<SuperExpr> expr)
 {
     // super expression evaluation
     int distance = locals[expr];
-    auto superclass = std::any_cast<std::shared_ptr<NblClass>>(environment->get_at(distance, "super"));
-    auto obj = std::any_cast<std::shared_ptr<NblInstance>>(environment->get_at(distance - 1, "this"));
+    auto superclass = std::any_cast<std::shared_ptr<NblClass>>(environment->get_at(distance, "gốc"));
+    auto obj = std::any_cast<std::shared_ptr<NblInstance>>(environment->get_at(distance - 1, "đây"));
     std::shared_ptr<NblFunction> method = superclass->find_method(expr->method.lexeme);
 
     if (method == nullptr) // can't find method

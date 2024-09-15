@@ -16,9 +16,9 @@ DEP_FLAGS = -MMD -MP
 RELEASE_CFLAGS = -O2
 DEBUG_CFLAGS = -g -O0
 
-compile: bin/nimble
+compile: bin/vila
 
-bin/nimble: $(OBJ) | bin
+bin/vila: $(OBJ) | bin
 	"$(CC)" -o $@ $(OBJ)
 
 bin:
@@ -31,7 +31,7 @@ obj:
 	mkdir -p obj
 
 run: compile
-	./bin/nimble
+	./bin/vila
 
 clean:
 	rm -f bin/* obj/*.o

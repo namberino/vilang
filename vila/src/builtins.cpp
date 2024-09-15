@@ -18,7 +18,7 @@ std::any NativeClock::call(Interpreter& interpreter, std::vector<std::any> args)
 
 std::string NativeClock::to_string()
 {
-    return "<hàm clock>";
+    return "<hàm đồng_hồ>";
 }
 
 
@@ -35,7 +35,7 @@ std::any NativeTime::call(Interpreter& interpreter, std::vector<std::any> args)
 
 std::string NativeTime::to_string()
 {
-    return "<hàm time>";
+    return "<hàm thời_gian>";
 }
 
 
@@ -64,7 +64,7 @@ std::any NativeInput::call(Interpreter& interpreter, std::vector<std::any> args)
 
 std::string NativeInput::to_string()
 {
-    return "<hàm input>";
+    return "<hàm đầu_vào>";
 }
 
 
@@ -83,7 +83,7 @@ std::any NativeExit::call(Interpreter& interpreter, std::vector<std::any> args)
 
 std::string NativeExit::to_string()
 {
-    return "<hàm exit>";
+    return "<hàm thoát>";
 }
 
 
@@ -100,7 +100,7 @@ std::any NativeFloorDiv::call(Interpreter& interpreter, std::vector<std::any> ar
 
 std::string NativeFloorDiv::to_string()
 {
-    return "<hàm floordiv>";
+    return "<hàm chia_nguyên>";
 }
 
 int NativeArrayLen::arity()
@@ -115,5 +115,5 @@ std::any NativeArrayLen::call(Interpreter& interpreter, std::vector<std::any> ar
 
 std::string NativeArrayLen::to_string()
 {
-    return "<hàm len>";
+    return "<hàm độ_dài>";
 }

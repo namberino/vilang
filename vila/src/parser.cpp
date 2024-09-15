@@ -233,7 +233,7 @@ std::shared_ptr<Stmt> Parser::declaration()
             return mut_declaration();
 
         if (match(FUN))
-            return function("function");
+            return function("hàm");
 
         if (match(CLASS))
             return class_declaration();
@@ -607,7 +607,7 @@ std::shared_ptr<Expr> Parser::primary()
         return std::make_shared<MutExpr>(previous());
 
     if (match(FUN))
-        return function_body("function");
+        return function_body("hàm");
 
     if (match(THIS))
         return std::make_shared<ThisExpr>(previous());

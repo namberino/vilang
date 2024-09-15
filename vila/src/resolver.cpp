@@ -238,11 +238,11 @@ std::any Resolver::visitClassStmt(std::shared_ptr<ClassStmt> stmt)
     if (stmt->superclass != nullptr)
     {
         begin_scope();
-        scopes.back()["super"] = true;
+        scopes.back()["gốc"] = true;
     }
 
     begin_scope();
-    scopes.back()["this"] = true;
+    scopes.back()["đây"] = true;
     for (std::shared_ptr<FunctionStmt> method : stmt->methods)
     {
         FunctionType declaration = FunctionType::METHOD;
@@ -271,13 +271,13 @@ std::any Resolver::visitImportStmt(std::shared_ptr<ImportStmt> stmt)
     {
         fs::path cwd = fs::current_path();
         fs::path relative_cwd = cwd / executed_path;
-        target = relative_cwd.parent_path().string() + (target[0] == '/' ? target : "/" + target) + ".nbl";
+        target = relative_cwd.parent_path().string() + (target[0] == '/' ? target : "/" + target) + ".vila";
     }
     else
     {
         is_core = true;
         target = target.substr(5); // remove "core:" prefix
-        target = core_lib_dir + "/" + target + ".nbl";
+        target = core_lib_dir + "/" + target + ".vila";
     }
 
     std::ifstream file(target);
@@ -360,7 +360,7 @@ void Resolver::end_scope()
 fs::path Resolver::get_base_path()
 {
     fs::path current_path = fs::current_path();
-    fs::path known_directory = "namlang"; // change if known directory is different
+    fs::path known_directory = "vila"; // change if known directory is different
 
     // find the known directory in current path
     auto it = std::find(current_path.begin(), current_path.end(), known_directory);

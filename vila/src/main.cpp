@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 {
     if (argc > 2) // too many arguments
     {
-        std::cout << "Cách dùng: nimble <script>.nbl\n";
+        std::cout << "Cách dùng: vila <script>.vila\n";
         exit(1);
     }
     else if (argc == 2) // run script file
@@ -22,15 +22,15 @@ int main(int argc, char* argv[])
 
         if(point != NULL)
         {
-            if(strcmp(point, ".nbl") != 0 && strcmp(point, ".nimble") != 0) // ends with nbl
+            if(strcmp(point, ".vila") != 0 && strcmp(point, ".vl") != 0) // ends with nbl
             {
-                std::cout << "Định dạng file không hợp lệ, xin hãy dùng file với định dạng '.nbl'\n";
+                std::cout << "Định dạng file không hợp lệ, xin hãy dùng file với định dạng '.vila'\n";
                 exit(1);
             }
         }
         else
         {
-            std::cout << "Định dạng file không hợp lệ, xin hãy dùng file với định dạng '.nbl'\n";
+            std::cout << "Định dạng file không hợp lệ, xin hãy dùng file với định dạng '.vila'\n";
             exit(1);
         }
 

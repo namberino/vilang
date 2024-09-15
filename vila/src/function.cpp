@@ -15,7 +15,7 @@ std::shared_ptr<NblFunction> NblFunction::bind(std::shared_ptr<NblInstance> inst
 {
     // bind the function to a closure
     auto environment = std::make_shared<Environment>(closure);
-    environment->define("this", instance);
+    environment->define("đây", instance);
     return std::make_shared<NblFunction>(name, declaration, environment, is_initializer);
 }
 
@@ -43,13 +43,13 @@ std::any NblFunction::call(Interpreter& interpreter, std::vector<std::any> argum
     {
         // for classes
         if (is_initializer)
-            return closure->get_at(0, "this");
+            return closure->get_at(0, "đây");
         return r.value; // return the value
     }
     
     // no return exception
     if (is_initializer)
-        return closure->get_at(0, "this");
+        return closure->get_at(0, "đây");
     return nullptr;
 }
 
