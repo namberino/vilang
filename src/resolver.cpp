@@ -360,7 +360,7 @@ void Resolver::end_scope()
 fs::path Resolver::get_base_path()
 {
     fs::path current_path = fs::current_path();
-    fs::path known_directory = "vila"; // change if known directory is different
+    fs::path known_directory = "vilang"; // change if known directory is different
 
     // find the known directory in current path
     auto it = std::find(current_path.begin(), current_path.end(), known_directory);
