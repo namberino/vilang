@@ -1,8 +1,8 @@
-// no initializers
-mut a;
-mut b;
+// không giá trị định nghĩa
+biến a;
+biến b;
 
 a = "assigned";
 
-print(a); // works
-print(b); // error
+in(a); // in được
+in(b); // lỗi

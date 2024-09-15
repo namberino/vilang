@@ -1,1 +1,1 @@
-On line: 3, Error at 'test': Can't read local variable in its initializer
+Tại dòng: 3, Lỗi tại 'test': Không thể đọc biến cục bộ trong phần khởi tạo chính nó

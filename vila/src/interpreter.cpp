@@ -619,7 +619,7 @@ std::string Interpreter::stringify(const std::any& obj)
 {
     // stringifying each types
     if (obj.type() == typeid(nullptr))
-        return "nil";
+        return "trống";
 
     if (obj.type() == typeid(double))
         return int_or_double(obj);

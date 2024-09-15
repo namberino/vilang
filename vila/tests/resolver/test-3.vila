@@ -1,5 +1,5 @@
-fun test()
+hàm test()
 {
-    mut t = "1";
-    mut t = "2"; // error
+    biến t = "1";
+    biến t = "2"; // lỗi
 }

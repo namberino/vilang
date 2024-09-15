@@ -1,4 +1,4 @@
-mut test = "test";
+biến test = "test";
 {
-    mut test = test; // error
+    biến test = test; // lỗi
 }

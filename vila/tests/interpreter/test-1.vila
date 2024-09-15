@@ -1,1 +1,1 @@
-print(2 * (3 / -"dummy"));
+in(2 * (3 / -"dummy"));

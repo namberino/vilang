@@ -1,19 +1,19 @@
-mut a = "global a";
-mut b = "global b";
-mut c = "global c";
+biến a = "global a";
+biến b = "global b";
+biến c = "global c";
 {
-  mut a = "outer a";
-  mut b = "outer b";
+  biến a = "outer a";
+  biến b = "outer b";
   {
-    mut a = "inner a";
-    print(a);
-    print(b);
-    print(c);
+    biến a = "inner a";
+    in(a);
+    in(b);
+    in(c);
   }
-  print(a);
-  print(b);
-  print(c);
+  in(a);
+  in(b);
+  in(c);
 }
-print(a);
-print(b);
-print(c);
+in(a);
+in(b);
+in(c);

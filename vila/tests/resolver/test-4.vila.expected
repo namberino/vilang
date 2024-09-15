@@ -1,1 +1,1 @@
-On line: 1, Error at 'return': Can't return from top-level code
+Tại dòng: 1, Lỗi tại 'trả': Không thể sử dụng câu lệnh 'trả' ở ngoài hàm

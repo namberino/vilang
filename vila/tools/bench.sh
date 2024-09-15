@@ -13,7 +13,7 @@ for program in $NBL_FILES; do
     echo "Running benchmark: $program"
 
     # run and capture output
-    output=$(./bin/nimble "$program")
+    output=$(./bin/vila "$program")
     
     # extract elapsed time
     elapsed_time=$(echo "$output" | grep 'Elapsed:' | awk '{print $2}')

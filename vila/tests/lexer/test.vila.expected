@@ -1,8 +1,8 @@
-On line: 2, Error at ')': Expected an expression
-On line: 8, Error at '/': Expected an expression
-On line: 14, Error at 'else': Expected class name
-On line: 14, Error at 'for': Expected function name
-On line: 14, Error at 'nil': Expected '(' after 'if' statement
-On line: 14, Error at 'return': Expected '(' after 'print' statement
-On line: 14, Error at 'while': Expected variable name
-On line: 15, Error at end: Expected '}' after block
+Tại dòng: 2, Lỗi tại ')': Cần câu lệnh
+Tại dòng: 8, Lỗi tại '/': Cần câu lệnh
+Tại dòng: 14, Lỗi tại 'thì': Cần tên của lớp
+Tại dòng: 14, Lỗi tại 'với': Cần tên cho hàm
+Tại dòng: 14, Lỗi tại 'trống': Cần '(' sau câu lệnh 'nếu'
+Tại dòng: 14, Lỗi tại 'trả': Cần '(' sau câu lệnh 'in'
+Tại dòng: 14, Lỗi tại 'khi': Cần tên biến
+Tại dòng: 15, Lỗi tại cuối: Cần '}' sau khối câu lệnh

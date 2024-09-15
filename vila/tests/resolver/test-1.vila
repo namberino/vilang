@@ -1,11 +1,11 @@
-mut a = "global";
+biến a = "global";
 {
-    fun show_a()
+    hàm show_a()
     {
-        print(a);
+        in(a);
     }
 
     show_a(); // global
-    mut a = "block";
+    biến a = "block";
     show_a(); // global
 }

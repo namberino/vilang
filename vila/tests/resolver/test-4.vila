@@ -1,1 +1,1 @@
-return "top"; // error
+trả "top"; // lỗi

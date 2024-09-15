@@ -1,7 +1,7 @@
-mut a = 3;
-mut b = 4;
-print(a + b);
+biến a = 3;
+biến b = 4;
+in(a + b);
 
-print("Testing variable printing");
-mut d = 0;
-print(d = 5);
+in("Test in biến");
+biến d = 0;
+in(d = 5);

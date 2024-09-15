@@ -19,7 +19,7 @@ for nbl in $NBL_FILES; do
 
     # run and get difference between output and expected output
     echo "Running test case $nbl...";
-    if ! ./bin/nimble $nbl | diff -u --color "$expected" -; then
+    if ! ./bin/vila $nbl | diff -u --color "$expected" -; then
         echo "Test case $nbl failed!";
         failed=$((failed + 1)); # count failed cases
     fi;
