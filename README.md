@@ -28,7 +28,7 @@ lớp Tree
 
     check()
     {
-        nếu (đây.trái == không)
+        nếu (đây.trái == trống)
         {
             trả đây.vật;
         }
