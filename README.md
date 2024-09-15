@@ -1,4 +1,4 @@
-# NBLang: The Vietnamese Programming Language
+# Vila: The Vietnamese Programming Language
 
 This is a programming language with support for Vietnamese syntaxes.
 
