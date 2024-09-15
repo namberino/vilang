@@ -1,122 +1,122 @@
 //------------------------------------//
-// Copyright 2024 Nam Nguyen
-// Licensed under Apache License v2.0
+// Bản quyền © 2024 Nguyễn Bình Nam
+// Được cấp phép theo Giấy phép Apache v2.0
 //------------------------------------//
 
-mut PI = 3.1415926535897932384626433832795028841971;
+biến PI = 3.1415926535897932384626433832795028841971;
 
-fun factorial(n)
+hàm factorial(n)
 {
-    if (n == 0 or n == 1)
+    nếu (n == 0 hoặc n == 1)
     {
-        return 1;
+        trả 1;
     }
 
-    return n * factorial(n - 1);
+    trả n * factorial(n - 1);
 }
 
-fun sin(x)
+hàm sin(x)
 {
-    mut result = 0;
+    biến result = 0;
 
-    for (mut i = 0; i < 20; i += 1)
+    với (biến i = 0; i < 20; i += 1)
     {
-        mut sign = -1 ** i;
-        mut term = (x ** (2 * i + 1)) / factorial(2 * i + 1);
+        biến sign = -1 ** i;
+        biến term = (x ** (2 * i + 1)) / factorial(2 * i + 1);
         result += sign * term;
     }
 
-    return result;
+    trả result;
 }
 
-fun cos(x)
+hàm cos(x)
 {
-    mut result = 0;
+    biến result = 0;
 
-    for (mut i = 0; i < 20; i += 1)
+    với (biến i = 0; i < 20; i += 1)
     {
-        mut sign = -1 ** i;
-        mut term = (x ** (2 * i)) / factorial(2 * i);
+        biến sign = -1 ** i;
+        biến term = (x ** (2 * i)) / factorial(2 * i);
         result += sign * term;
     }
 
-    return result;
+    trả result;
 }
 
-fun tan(x)
+hàm tan(x)
 {
-    return sin(x) / cos(x);
+    trả sin(x) / cos(x);
 }
 
-fun cot(x)
+hàm cot(x)
 {
-    return cos(x) / sin(x);
+    trả cos(x) / sin(x);
 }
 
-fun exp(x)
+hàm exp(x)
 {
-    mut result = 1;
-    mut term = 1;
+    biến result = 1;
+    biến term = 1;
 
-    for (mut i = 1; i < 20; i += 1)
+    với (biến i = 1; i < 20; i += 1)
     {
         term = term * x / i;
         result = result + term;
     }
 
-    return result;
+    trả result;
 }
 
-fun ln(x)
+hàm ln(x)
 {
-    if (x <= 0)
+    nếu (x <= 0)
     {
-        return 0 / 0; // error
+        trả 0 / 0; // error
     }
 
-    mut y = (x - 1) / (x + 1);
-    mut y2 = y * y;
-    mut result = 0;
-    mut term = y;
+    biến y = (x - 1) / (x + 1);
+    biến y2 = y * y;
+    biến result = 0;
+    biến term = y;
 
-    for (mut i = 1; i < 100; i += 2)
+    với (biến i = 1; i < 100; i += 2)
     {
         result = result + term / i;
         term = term * y2;
     }
 
-    return 2 * result;
+    trả 2 * result;
 }
 
-fun log10(x)
+hàm log10(x)
 {
-    return ln(x) / ln(10);
+    trả ln(x) / ln(10);
 }
 
-fun log2(x)
+hàm log2(x)
 {
-    return ln(x) / ln(2);
+    trả ln(x) / ln(2);
 }
 
-fun log(x, b)
+hàm log(x, b)
 {
-    return ln(x) / ln(b);
+    trả ln(x) / ln(b);
 }
 
-fun sqrt(x)
+hàm sqrt(x)
 {
-    if (x < 0)
+    nếu (x < 0)
     {
-        return 0 / 0; // error
+        trả 0 / 0; // error
     }
 
-    mut guess = x;
-    mut epsilon = 0.000001;
+    biến guess = x;
+    biến epsilon = 0.000001;
 
-    while ((guess * guess - x) > epsilon)
+    khi ((guess * guess - x) > epsilon)
     {
         guess = (guess + x / guess) / 2;
     }
 
-    return guess;
+    trả guess;
 }

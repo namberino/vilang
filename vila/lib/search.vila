@@ -1,48 +1,48 @@
 //------------------------------------//
-// Copyright 2024 Nam Nguyen
-// Licensed under Apache License v2.0
+// Bản quyền © 2024 Nguyễn Bình Nam
+// Được cấp phép theo Giấy phép Apache v2.0
 //------------------------------------//
 
-fun linear_search(array, value, length)
+hàm linear_search(array, value, length)
 {
-    mut count = 0;
+    biến count = 0;
 
-    for (mut i = 0; i < length; i += 1)
+    với (biến i = 0; i < length; i += 1)
     {
         // print("Checking the " + i + " element");
 
-		if (array[i] == value)
-			return count;
+		nếu (array[i] == value)
+			trả count;
 
 		count += 1;
     }
 
-    return -1;
+    trả -1;
 }
 
-fun binary_search(array, value, low, high)
+hàm binary_search(array, value, low, high)
 {
-    while (low <= high)
+    khi (low <= high)
     {
-        mut mid = low + floordiv((high - 1), 2);
+        biến mid = low + chia_nguyên((high - 1), 2);
         // print("Midpoint: " + mid);
 
-        if (value == array[mid])
+        nếu (value == array[mid])
         {
-            return mid;
+            trả mid;
         }
 
-        if (value > array[mid])
+        nếu (value > array[mid])
         {
             // print("Checking right half");
             low = mid + 1;
         }
-        else
+        thì
         {
             // print("Checking left half");
             high = mid - 1;
         }
     }
 
-    return -1;
+    trả -1;
 }

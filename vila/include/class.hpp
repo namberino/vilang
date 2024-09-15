@@ -1,6 +1,6 @@
 //------------------------------------//
-// Copyright 2024 Nam Nguyen
-// Licensed under Apache License v2.0
+// Bản quyền © 2024 Nguyễn Bình Nam
+// Được cấp phép theo Giấy phép Apache v2.0
 //------------------------------------//
 
 #ifndef CLASS_HPP

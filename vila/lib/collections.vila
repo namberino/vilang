@@ -1,62 +1,62 @@
 //------------------------------------//
-// Copyright 2024 Nam Nguyen
-// Licensed under Apache License v2.0
+// Bản quyền © 2024 Nguyễn Bình Nam
+// Được cấp phép theo Giấy phép Apache v2.0
 //------------------------------------//
 
-class Map
+lớp Map
 {
-    init()
+    khởi_tạo()
     {
-        this.size = 0;
-        this.keys = [];
-        this.values = [];
+        đây.size = 0;
+        đây.keys = [];
+        đây.values = [];
     }
 
     get_index(key)
     {
-        for (mut i = 0; i < this.size; i += 1)
+        với (biến i = 0; i < đây.size; i += 1)
         {
-            if (this.keys[i] == key)
+            nếu (đây.keys[i] == key)
             {
-                return i;
+                trả i;
             }
         }
-        return -1; // key not found
+        trả -1; // key not found
     }
 
     insert(key, value)
     {
-        mut index = this.get_index(key);
+        biến index = đây.get_index(key);
 
-        if (index == -1) // key not found
+        nếu (index == -1) // key not found
         {
-            this.keys[this.size] = key;
-            this.values[this.size] = value;
-            this.size += 1;
+            đây.keys[đây.size] = key;
+            đây.values[đây.size] = value;
+            đây.size += 1;
         }
-        else
+        thì
         {
-            this.values[index] = value;
+            đây.values[index] = value;
         }
     }
 
     get(key)
     {
-        mut index = this.get_index(key);
+        biến index = đây.get_index(key);
 
-        if (index == -1)
+        nếu (index == -1)
         {
-            return -1;
+            trả -1;
         }
-        else
+        thì
         {
-            return this.values[index];
+            trả đây.values[index];
         }
     }
 
     print_map()
     {
-        for (mut i = 0; i < this.size; i += 1)
-            print(this.keys[i] + " : " + this.values[i]);
+        với (biến i = 0; i < đây.size; i += 1)
+            in(đây.keys[i] + " : " + đây.values[i]);
     }
 }
