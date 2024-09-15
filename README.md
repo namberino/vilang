@@ -40,4 +40,4 @@ lớp Tree
 
 ## Building and running
 
-You can build this by running `make compile` and run this by running `./bin/nblang <filename>.nbl`
+You can build this by running `make compile` and run this by running `./bin/vila <filename>.vila`
