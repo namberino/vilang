@@ -75,4 +75,4 @@ khi (độ_sâu < độ_sâu_stretch)
 in("");
 in("Cây với độ sâu: " + độ_sâu_max);
 in("Check: " + cây_lâu_dài.check());
-in("Thời gian chạy: " + (đồng_hồ() - start));
+in("Elapsed: " + (đồng_hồ() - start));

@@ -18,19 +18,19 @@ for nbl in $NBL_FILES; do
     expected=${nbl}.expected;
 
     # run and get difference between output and expected output
-    echo "Running test case $nbl...";
+    echo "Đang chạy test case $nbl...";
     if ! ./bin/vila $nbl | diff -u --color "$expected" -; then
-        echo "Test case $nbl failed!";
+        echo "Test case $nbl không đạt!";
         failed=$((failed + 1)); # count failed cases
     fi;
 done;
 
 if [ $failed -eq 0 ]; then
     echo;
-    echo -e "${GREEN}All test cases passed${NC}";
+    echo -e "${GREEN}Mọi test case đều đạt${NC}";
 else
     echo;
-    echo -e "${RED}Total failed test cases: $failed${NC}";
+    echo -e "${RED}Số test case không đạt: $failed${NC}";
 fi;
 
 exit $failed

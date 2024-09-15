@@ -17,4 +17,4 @@ với (biến i = 2; i < 10001; i += 1)
 }
 
 in(num_primes);
-in("Thời gian chạy: " + (đồng_hồ() - start));
+in("Elapsed: " + (đồng_hồ() - start));
