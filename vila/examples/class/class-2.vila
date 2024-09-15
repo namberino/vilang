@@ -1,5 +1,5 @@
-class Donut {}
+lớp Donut {}
 
-mut donut = Donut();
+biến donut = Donut();
 
-print(donut);
+in(donut);

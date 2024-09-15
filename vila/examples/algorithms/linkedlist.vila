@@ -1,29 +1,29 @@
-class Node {
-    init(data) {
-        this.data = data;
-        this.next = nil;
+lớp Node {
+    khởi_tạo(data) {
+        đây.data = data;
+        đây.next = trống;
     }
 }
 
-class LinkedList {
-    init() {
-        this.head = nil;
+lớp LinkedList {
+    khởi_tạo() {
+        đây.head = trống;
     }
 
     print_list() {
-        mut value = this.head;
+        biến value = đây.head;
 
-        while (value != nil) {
-            print(value.data);
+        khi (value != trống) {
+            in(value.data);
             value = value.next;
         }
     }
 }
 
-mut ll = LinkedList();
+biến ll = LinkedList();
 ll.head = Node(1);
-mut second = Node(2);
-mut third = Node(3);
+biến second = Node(2);
+biến third = Node(3);
 
 ll.head.next = second;
 second.next = third;

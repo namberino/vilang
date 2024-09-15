@@ -1,11 +1,11 @@
-fun fib(n)
+hàm fib(n)
 {
-    if (n < 2)
-        return n;
+    nếu (n < 2)
+        trả n;
 
-    return fib(n - 2) + fib(n - 1);
+    trả fib(n - 2) + fib(n - 1);
 }
 
-mut start = clock();
-mut t = fib(30);
-print("Elapsed: " + (clock() - start));
+biến start = đồng_hồ();
+biến t = fib(30);
+in("Elapsed: " + (đồng_hồ() - start));

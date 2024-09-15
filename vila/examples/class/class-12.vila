@@ -1,2 +1,2 @@
-print(super); // syntax error
-print(super.testing()); // outside of class error
+in(gốc); // lỗi syntax
+in(gốc.testing()); // lỗi ngoài lớp

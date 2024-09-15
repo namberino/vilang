@@ -1,21 +1,21 @@
-fun loop()
+hàm loop()
 {
-    mut n = 10;
+    biến n = 10;
 
-    while (true)
+    khi (đúng)
     {
-        if (n <= 2)
+        nếu (n <= 2)
         {
-            break;
+            dừng;
         }
 
-        print(n);
+        in(n);
         n -= 1;
     }
 
-    return n;
+    trả n;
 }
 
-mut n = loop();
+biến n = loop();
 
-print("Output of the function: " + n);
+in("Output of the function: " + n);

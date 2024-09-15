@@ -1,5 +1,4 @@
-import "core:math";
-import "liber";
+nhập "liber";
 
-mut x = diver(5, 3);
-print(x);
+biến x = diver(5, 3);
+in(x);

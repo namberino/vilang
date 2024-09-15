@@ -148,7 +148,7 @@ std::any Interpreter::visitClassStmt(std::shared_ptr<ClassStmt> stmt)
         superclass = evaluate(stmt->superclass);
 
         if (superclass.type() != typeid(std::shared_ptr<NblClass>))
-            throw RuntimeError(stmt->superclass->name, "Lớp cha phải là 1 lớp");
+            throw RuntimeError(stmt->superclass->name, "Lớp gốc phải là 1 lớp");
     }
 
     environment->define(stmt->name.lexeme, nullptr);

@@ -1,136 +1,136 @@
-class CircularQueue
+lớp CircularQueue
 {
-    init(length)
+    khởi_tạo(length)
     {
-        this.length = length;
-        this.queue = [];
+        đây.length = length;
+        đây.queue = [];
 
-        this.head = -1;
-        this.tail = -1;
+        đây.head = -1;
+        đây.tail = -1;
     }
 
     enqueue(data)
     {
-        if (this.is_empty())
+        nếu (đây.is_empty())
         {
-            this.head = 0;
+            đây.head = 0;
         }
 
-        this.tail = (this.tail + 1) % this.length;
-        this.queue[this.tail] = data;
+        đây.tail = (đây.tail + 1) % đây.length;
+        đây.queue[đây.tail] = data;
     }
 
     dequeue()
     {
-        // if there's 1 element
-        if (this.head == this.tail)
+        // nếu there's 1 element
+        nếu (đây.head == đây.tail)
         {
-            this.head = -1;
-            this.tail = -1;
+            đây.head = -1;
+            đây.tail = -1;
         }
 
-        this.head = (this.head + 1) % this.length;
+        đây.head = (đây.head + 1) % đây.length;
     }
 
     print_cqueue()
     {
-        if (this.head == -1) // empty queue
+        nếu (đây.head == -1) // empty queue
         {
-            print("No element in the circular queue");
+            in("No element in the circular queue");
         }
-        else if (this.tail >= this.head) // normal order
+        thì nếu (đây.tail >= đây.head) // normal order
         {
-            for (mut i = this.head; i < this.tail + 1; i += 1)
+            với (biến i = đây.head; i < đây.tail + 1; i += 1)
             {
-                print(this.queue[i]);
+                in(đây.queue[i]);
             }
         }
-        else // circular order
+        thì // circular order
         {
-            for (mut i = this.head; i < this.length; i += 1)
+            với (biến i = đây.head; i < đây.length; i += 1)
             {
-                print(this.queue[i]);
+                in(đây.queue[i]);
             }
 
-            for (mut i = 0; i < this.tail + 1; i += 1)
+            với (biến i = 0; i < đây.tail + 1; i += 1)
             {
-                print(this.queue[i]);
+                in(đây.queue[i]);
             }
         }
     }
 
     front()
     {
-        if (this.is_empty())
+        nếu (đây.is_empty())
         {
-            return -1;
+            trả -1;
         }
 
-        return this.queue[this.head];
+        trả đây.queue[đây.head];
     }
 
     rear()
     {
-        if (this.is_empty())
+        nếu (đây.is_empty())
         {
-            return -1;
+            trả -1;
         }
 
-        return this.queue[this.tail];
+        trả đây.queue[đây.tail];
     }
 
     is_empty()
     {
-        return this.head == -1;
+        trả đây.head == -1;
     }
 
     is_full()
     {
-        return ((this.tail + 1) % this.length) == this.head;
+        trả ((đây.tail + 1) % đây.length) == đây.head;
     }
 }
 
-mut cqueue = CircularQueue(6);
+biến cqueue = CircularQueue(6);
 cqueue.enqueue("A");
 cqueue.enqueue("B");
 cqueue.enqueue("C");
 
-print("Initial queue:");
+in("Initial queue:");
 cqueue.print_cqueue();
 
-mut front = cqueue.front();
-mut rear = cqueue.rear();
-print("Front: " + front + ", Rear: " + rear);
-print("");
+biến front = cqueue.front();
+biến rear = cqueue.rear();
+in("Front: " + front + ", Rear: " + rear);
+in("");
 
 cqueue.enqueue("D");
 
-print("Queue with 'E' added:");
+in("Queue with 'E' added:");
 cqueue.print_cqueue();
 
 front = cqueue.front();
 rear = cqueue.rear();
-print("Front: " + front + ", Rear: " + rear);
-print("");
+in("Front: " + front + ", Rear: " + rear);
+in("");
 
 cqueue.dequeue();
 cqueue.dequeue();
 
-print("Dequeued twice:");
+in("Dequeued twice:");
 cqueue.print_cqueue();
 
 front = cqueue.front();
 rear = cqueue.rear();
-print("Front: " + front + ", Rear: " + rear);
+in("Front: " + front + ", Rear: " + rear);
 
 cqueue.enqueue("A");
 cqueue.enqueue("B");
 cqueue.enqueue("E");
 cqueue.enqueue("F");
 
-print("Enqueued 4 times:");
+in("Enqueued 4 times:");
 cqueue.print_cqueue();
 
 front = cqueue.front();
 rear = cqueue.rear();
-print("Front: " + front + ", Rear: " + rear);
+in("Front: " + front + ", Rear: " + rear);

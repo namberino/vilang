@@ -1,2 +1,2 @@
-print("this prints" or 2);
-print(nil or "this also prints");
+in("this prints" hoặc 2);
+in(trống hoặc "this also prints");

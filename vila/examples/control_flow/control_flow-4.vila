@@ -1,17 +1,17 @@
-mut n = 10;
+biến n = 10;
 
-while (true)
+khi (đúng)
 {
-    if (n == 2)
+    nếu (n == 2)
     {
-        break;
+        dừng;
     }
 
-    print(n);
+    in(n);
 
     n = n - 1;
 }
 
-print("End of loop");
-print(n);
-print(n);
+in("End of loop");
+in(n);
+in(n);

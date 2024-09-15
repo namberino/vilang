@@ -1,30 +1,30 @@
-class Node
+lớp Node
 {
-    init(key, info)
+    khởi_tạo(key, info)
     {
-        this.key = key;
-        this.info = info;
-        this.next = nil;
+        đây.key = key;
+        đây.info = info;
+        đây.next = trống;
     }
 }
 
-class LinkedList
+lớp LinkedList
 {
-    init()
+    khởi_tạo()
     {
-        this.head = nil;
+        đây.head = trống;
     }
 
     search(value)
     {
-        mut p = this.head;
+        biến p = đây.head;
 
-        while (p != nil)
+        khi (p != trống)
         {
-            if (p.key == value)
+            nếu (p.key == value)
             {
-                print("Student found: " + value + " | GPA: " + p.info);
-                break;
+                in("Student found: " + value + " | GPA: " + p.info);
+                dừng;
             }
 
             p = p.next;
@@ -32,13 +32,13 @@ class LinkedList
     }
 }
 
-mut ll = LinkedList();
+biến ll = LinkedList();
 
 ll.head = Node("stu1234", 7.5);
-mut second = Node("stu2345", 8.3);
-mut third = Node("stu3456", 7.6);
-mut fourth = Node("stu4567", 9);
-mut fifth = Node("stu5678", 9.5);
+biến second = Node("stu2345", 8.3);
+biến third = Node("stu3456", 7.6);
+biến fourth = Node("stu4567", 9);
+biến fifth = Node("stu5678", 9.5);
 
 ll.head.next = second;
 second.next = third;

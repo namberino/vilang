@@ -1,4 +1,4 @@
-fun diver(a, b)
+hàm diver(a, b)
 {
-    return a / b;
+    trả a / b;
 }

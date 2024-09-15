@@ -1,25 +1,25 @@
-class A
+lớp A
 {
     method()
     {
-        print("Method A");
+        in("Method A");
     }
 }
 
-class B : A
+lớp B : A
 {
     method()
     {
-        print("Method B");
+        in("Method B");
     }
 
     test()
     {
-        super.method();
+        gốc.method();
     }
 }
 
-class C : B {}
+lớp C : B {}
 
 C().method();
 C().test();

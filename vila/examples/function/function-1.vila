@@ -1,17 +1,17 @@
-fun say_hi()
+hàm say_hi()
 {
-    mut n = 10;
+    biến n = 10;
 
-    print("Hello world");
-    print("This was printed from the say_hi function");
+    in("Hello world");
+    in("This was printed from the say_hi function");
 
-    return n;
+    trả n;
 }
 
-mut num = say_hi();
+biến num = say_hi();
 
-print("This was printed from outside the say_hi function");
+in("This was printed from outside the say_hi function");
 
 say_hi();
 
-print(num);
+in(num);

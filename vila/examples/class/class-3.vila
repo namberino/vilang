@@ -1,10 +1,10 @@
-class Box {}
+lớp Box {}
 
-fun not_class_func(arg)
+hàm not_class_func(arg)
 {
-    print("Called function with " + arg);
+    in("Called function with " + arg);
 }
 
-mut box = Box();
+biến box = Box();
 box.function = not_class_func;
 box.function("argument");

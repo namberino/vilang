@@ -1,6 +1,6 @@
-mut li = [1, 2, 3, 4];
+biến li = [1, 2, 3, 4];
 
-for (mut i = 0; i < 4; i += 1)
+với (biến i = 0; i < 4; i += 1)
 {
-    print(li[i]);
+    in(li[i]);
 }

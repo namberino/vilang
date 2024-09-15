@@ -1,47 +1,47 @@
 // 2d blooming pattern
-fun max(arg1, arg2)
+hàm max(arg1, arg2)
 {
-    if (arg1 >= arg2)
-        return arg1;
-    return arg2;
+    nếu (arg1 >= arg2)
+        trả arg1;
+    trả arg2;
 }
 
-fun abs(num)
+hàm abs(num)
 {
-    if (num < 0)
-        return 0 - num;
-    return num;
+    nếu (num < 0)
+        trả 0 - num;
+    trả num;
 }
 
-fun bloom(n)
+hàm bloom(n)
 {
-    mut arr = [];
+    biến arr = [];
     
-    for (mut i = 0; i < n; i += 1)
+    với (biến i = 0; i < n; i += 1)
     {
         arr[i] = [];
     }
 
-    mut mid = floordiv(n, 2);
-    mut distance;
+    biến mid = chia_nguyên(n, 2);
+    biến distance;
 
     // get distance from mid point (the middle value of the middle array)
-    for (mut i = 0; i < n; i += 1)
+    với (biến i = 0; i < n; i += 1)
     {
-        for (mut j = 0; j < n; j += 1)
+        với (biến j = 0; j < n; j += 1)
         {
             distance = max(abs(i - mid), abs(j - mid));
             arr[i][j] = distance + 1;
         }
     }
 
-    return arr;
+    trả arr;
 }
 
-mut n = input("Enter length: ");
-mut arr = bloom(n);
+biến n = đầu_vào("Enter length: ");
+biến arr = bloom(n);
 
-for (mut i = 0; i < n; i += 1)
+với (biến i = 0; i < n; i += 1)
 {
-    print(arr[i]);
+    in(arr[i]);
 }

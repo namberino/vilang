@@ -1,54 +1,54 @@
-class Node
+lớp Node
 {
-    init(key)
+    khởi_tạo(key)
     {
-        this.left = nil;
-        this.right = nil;
-        this.val = key;
+        đây.left = nil;
+        đây.right = nil;
+        đây.val = key;
     }
 
     preorder()
     {
-        print(this.val);
-        if (this.left)
-            this.left.preorder();
-        if (this.right)
-            this.right.preorder();
+        in(đây.val);
+        nếu (đây.left)
+            đây.left.preorder();
+        nếu (đây.right)
+            đây.right.preorder();
     }
 
     inorder()
     {
-        if (this.left)
-            this.left.inorder();
-        print(this.val);
-        if (this.right)
-            this.right.inorder();
+        nếu (đây.left)
+            đây.left.inorder();
+        in(đây.val);
+        nếu (đây.right)
+            đây.right.inorder();
     }
 
     postorder()
     {
-        if (this.left)
-            this.left.postorder();
-        if (this.right)
-            this.right.postorder();
-        print(this.val);
+        nếu (đây.left)
+            đây.left.postorder();
+        nếu (đây.right)
+            đây.right.postorder();
+        in(đây.val);
     }
 }
 
-mut root = Node(1);
+biến root = Node(1);
 root.left = Node(2);
 root.right = Node(3);
 root.left.left = Node(4);
 root.left.right = Node(5);
 
-print("Preorder traversal:");
+in("Preorder traversal:");
 root.preorder();
-print("");
+in("");
 
-print("Inorder traversal:");
+in("Inorder traversal:");
 root.inorder();
-print("");
+in("");
 
-print("Postorder traversal:");
+in("Postorder traversal:");
 root.postorder();
-print("");
+in("");

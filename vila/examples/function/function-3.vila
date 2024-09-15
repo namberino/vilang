@@ -1,17 +1,17 @@
-fun make_counter()
+hàm make_counter()
 {
-    mut i = 0;
+    biến i = 0;
 
-    fun count()
+    hàm count()
     {
         i += 1;
-        print(i);
+        in(i);
     }
 
-    return count;
+    trả count;
 }
 
-mut counter = make_counter();
+biến counter = make_counter();
 
 counter(); // 1
 counter(); // 2

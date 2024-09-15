@@ -1,11 +1,11 @@
-class Initial
+lớp Initial
 {
-    init()
+    khởi_tạo()
     {
-        print(this);
+        in(đây);
     }
 }
 
-mut initial = Initial();
+biến initial = Initial();
 
-print(initial.init());
+in(initial.khởi_tạo());

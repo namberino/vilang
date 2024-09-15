@@ -1,15 +1,15 @@
-class Stuff
+lớp Stuff
 {
     get_callback()
     {
-        fun local_func()
+        hàm local_func()
         {
-            print(this);
+            in(đây);
         }
 
-        return local_func;
+        trả local_func;
     }
 }
 
-mut callback = Stuff().get_callback();
+biến callback = Stuff().get_callback();
 callback();

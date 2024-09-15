@@ -1,41 +1,41 @@
-class Graph
+lớp Graph
 {
-    init(n, directed)
+    khởi_tạo(n, directed)
     {
-        this.node_num = n;
-        this.g_directed = directed;
+        đây.node_num = n;
+        đây.g_directed = directed;
 
-        this.adj_matrix = [];
+        đây.adj_matrix = [];
 
-        for (mut row = 0; row < this.node_num; row += 1)
+        với (biến row = 0; row < đây.node_num; row += 1)
         {
-            mut li = [];
+            biến li = [];
 
-            for (mut col = 0; col < this.node_num; col += 1)
+            với (biến col = 0; col < đây.node_num; col += 1)
             {
                 li[col] = 0;
             }
 
-            this.adj_matrix[row] = li;
+            đây.adj_matrix[row] = li;
         }
     }
 
     add_edge(node1, node2, weight)
     {
-        this.adj_matrix[node1][node2] = weight;
+        đây.adj_matrix[node1][node2] = weight;
 
-        if (!this.g_directed)
-            this.adj_matrix[node2][node1] = weight;
+        nếu (!đây.g_directed)
+            đây.adj_matrix[node2][node1] = weight;
     }
 
     print_graph()
     {
-        for (mut i = 0; i < len(this.adj_matrix); i += 1)
-            print(this.adj_matrix[i]);
+        với (biến i = 0; i < độ_dài(đây.adj_matrix); i += 1)
+            in(đây.adj_matrix[i]);
     }
 }
 
-mut g = Graph(6, false);
+biến g = Graph(6, false);
 
 g.add_edge(1, 1, 25);
 g.add_edge(1, 2, 5);

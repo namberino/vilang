@@ -1,25 +1,25 @@
-import "core:sort";
+nhập "lõi:sort";
 
-mut array = [1, 9, 2, 4, 3, 6, 5, 7, 8];
+biến array = [1, 9, 2, 4, 3, 6, 5, 7, 8];
 bubble_sort(array);
-print("Bubble sort:");
-print(array);
-print("");
+in("Bubble sort:");
+in(array);
+in("");
 
-mut array = [1, 9, 2, 4, 3, 6, 5, 7, 8];
+biến array = [1, 9, 2, 4, 3, 6, 5, 7, 8];
 insertion_sort(array);
-print("Insertion sort:");
-print(array);
-print("");
+in("Insertion sort:");
+in(array);
+in("");
 
-mut array = [1, 9, 2, 4, 3, 6, 5, 7, 8];
-quick_sort(array, 0, len(array) - 1);
-print("Quick sort:");
-print(array);
-print("");
+biến array = [1, 9, 2, 4, 3, 6, 5, 7, 8];
+quick_sort(array, 0, độ_dài(array) - 1);
+in("Quick sort:");
+in(array);
+in("");
 
-mut array = [1, 9, 2, 4, 3, 6, 5, 7, 8];
+biến array = [1, 9, 2, 4, 3, 6, 5, 7, 8];
 selection_sort(array);
-print("Selection sort:");
-print(array);
-print("");
+in("Selection sort:");
+in(array);
+in("");

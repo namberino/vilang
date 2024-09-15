@@ -1,78 +1,78 @@
-class Tree
+lớp Tree
 {
-    init(item, depth)
+    khởi_tạo(vật, độ_sâu)
     {
-        this.item = item;
-        this.depth = depth;
+        đây.vật = vật;
+        đây.độ_sâu = độ_sâu;
 
-        if (depth > 0)
+        nếu (độ_sâu > 0)
         {
-            mut item2 = item + item;
-            depth -= 1;
-            this.left = Tree(item2 - 1, depth);
-            this.right = Tree(item2, depth);
+            biến vật2 = vật + vật;
+            độ_sâu = độ_sâu - 1;
+            đây.trái = Tree(vật2 - 1, độ_sâu);
+            đây.phải = Tree(vật2, độ_sâu);
         }
-        else
+        thì
         {
-            this.left = nil;
-            this.right = nil;
+            đây.trái = trống;
+            đây.phải = trống;
         }
     }
 
     check()
     {
-        if (this.left == nil)
+        nếu (đây.trái == trống)
         {
-            return this.item;
+            trả đây.vật;
         }
 
-        return this.item + this.left.check() - this.right.check();
+        trả đây.vật + đây.trái.check() - đây.phải.check();
     }
 }
 
-mut min_depth = 4;
-mut max_depth = 12;
-mut stretch_depth = max_depth + 1;
+biến độ_sâu_min = 4;
+biến độ_sâu_max = 12;
+biến độ_sâu_stretch = độ_sâu_max + 1;
 
-mut start = clock();
+biến start = đồng_hồ();
 
-print("Stretch tree depth: " + stretch_depth);
-print("Check: " + Tree(0, stretch_depth).check());
+in("Cây stretch với độ sâu: " + độ_sâu_stretch);
+in("Check: " + Tree(0, độ_sâu_stretch).check());
 
-mut long_lived_tree = Tree(0, max_depth);
+biến cây_lâu_dài = Tree(0, độ_sâu_max);
 
-// iterations = 2 ** max_depth
-mut iterations = 1;
-mut d = 0;
+// số_lần = 2 ** độ_sâu_max
+biến số_lần = 1;
+biến s = 0;
 
-while (d < max_depth)
+khi (s < độ_sâu_max)
 {
-    iterations *= 2;
-    d += 1;
+    số_lần = số_lần * 2;
+    s = s + 1;
 }
 
-mut depth = min_depth;
+biến độ_sâu = độ_sâu_min;
 
-while (depth < stretch_depth)
+khi (độ_sâu < độ_sâu_stretch)
 {
-    mut check = 0;
-    mut i = 1;
+    biến check = 0;
+    biến i = 1;
 
-    while (i <= iterations)
+    khi (i <= số_lần)
     {
-        check += Tree(i, depth).check() + Tree(-i, depth).check();
+        check = check + Tree(i, độ_sâu).check() + Tree(-i, độ_sâu).check();
         i += 1;
     }
 
-    print("Num trees: " + iterations * 2);
-    print("Depth: " + depth);
-    print("Check: " + check);
+    in("Số cây: " + số_lần * 2);
+    in("Độ sâu: " + độ_sâu);
+    in("Check: " + check);
 
-    iterations /= 4;
-    depth += 2;
+    số_lần = số_lần / 4;
+    độ_sâu = độ_sâu + 2;
 }
 
-print("");
-print("Long lived tree of depth: " + max_depth);
-print("Check: " + long_lived_tree.check());
-print("Elapsed: " + (clock() - start));
+in("");
+in("Cây với độ sâu: " + độ_sâu_max);
+in("Check: " + cây_lâu_dài.check());
+in("Thời gian: " + (đồng_hồ() - start));

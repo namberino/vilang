@@ -1,18 +1,18 @@
-class Dog
+lớp Dog
 {
     say()
     {
-        print("Woof");
+        in("Woof");
     }
 
     say_name()
     {
-        print(this.name);
+        in(đây.name);
     }
 }
 
-mut doggo1 = Dog();
+biến doggo1 = Dog();
 doggo1.name = "Walter";
 
-mut method = doggo1.say_name;
+biến method = doggo1.say_name;
 method();

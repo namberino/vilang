@@ -1,26 +1,26 @@
-class Pizza
+lớp Pizza
 {
     taste()
     {
-        print("Absolutely delicious");
+        in("Absolutely delicious");
     }
 }
 
-class NYPizza : Pizza {}
+lớp NYPizza : Pizza {}
 
-class SFPizza : Pizza
+lớp SFPizza : Pizza
 {
     taste()
     {
-        super.taste();
-        print("Pretty nice");
+        gốc.taste();
+        in("Pretty nice");
     }
 }
 
-print("NY Pizza:");
+in("NY Pizza:");
 NYPizza().taste();
 
-print("");
+in("");
 
-print("SF Pizza:");
+in("SF Pizza:");
 SFPizza().taste();

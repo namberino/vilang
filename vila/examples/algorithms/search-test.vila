@@ -1,28 +1,28 @@
-import "core:search";
+nhập "lõi:search";
 
-mut array = [11, 23, 36, 42, 58, 65, 74, 87, 94];
-mut length = len(array);
-mut value = 74;
+biến array = [11, 23, 36, 42, 58, 65, 74, 87, 94];
+biến length = độ_dài(array);
+biến value = 74;
 
-print("Linear search:");
-mut lin_val = linear_search(array, value, length);
-if (lin_val != -1)
+in("Linear search:");
+biến lin_val = linear_search(array, value, length);
+nếu (lin_val != -1)
 {
-    print("Element found at index " + lin_val);
+    in("Element found at index " + lin_val);
 }
-else
+thì
 {
-    print("Element not found");
+    in("Element not found");
 }
 
-print("");
-print("Binary search:");
-mut bin_val = binary_search(array, value, 0, length - 1);
-if (bin_val != -1)
+in("");
+in("Binary search:");
+biến bin_val = binary_search(array, value, 0, length - 1);
+nếu (bin_val != -1)
 {
-    print("Element found at index " + bin_val);
+    in("Element found at index " + bin_val);
 }
-else
+thì
 {
-    print("Element not found");
+    in("Element not found");
 }

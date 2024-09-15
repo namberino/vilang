@@ -1,14 +1,14 @@
-mut test = 17;
+biến test = 17;
 
-if (test == 18)
+nếu (test == 18)
 {
-    print("Barely Adult");
+    in("Barely Adult");
 }
-else if (test >= 18)
+thì nếu (test >= 18)
 {
-    print("Adult");
+    in("Adult");
 }
-else
+thì
 {
-    print("Underage");
+    in("Underage");
 }

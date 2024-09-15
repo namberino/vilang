@@ -1,7 +1,7 @@
-class Foo
+lớp Foo
 {
-    init()
+    khởi_tạo()
     {
-        return "hello";
+        trả "hello"; // lỗi
     }
 }

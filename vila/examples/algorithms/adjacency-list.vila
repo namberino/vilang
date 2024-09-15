@@ -1,53 +1,53 @@
-class Node
+lớp Node
 {
-    init(value)
+    khởi_tạo(value)
     {
-        this.vertex = value;
-        this.next = nil;
+        đây.vertex = value;
+        đây.next = trống;
     }
 }
 
-class Graph
+lớp Graph
 {
-    init(num)
+    khởi_tạo(num)
     {
-        this.V = num;
-        this.graph = [];
+        đây.V = num;
+        đây.graph = [];
         
-        for (mut i = 0; i < this.V; i += 1)
+        với (biến i = 0; i < đây.V; i += 1)
         {
-            this.graph[i] = nil;
+            đây.graph[i] = trống;
         }
     }
 
     add_edge(data1, data2)
     {
-        mut node = Node(data2);
-        node.next = this.graph[data1];
-        this.graph[data1] = node;
+        biến node = Node(data2);
+        node.next = đây.graph[data1];
+        đây.graph[data1] = node;
 
         node = Node(data1);
-        node.next = this.graph[data2];
-        this.graph[data2] = node;
+        node.next = đây.graph[data2];
+        đây.graph[data2] = node;
     }
 
     print_graph()
     {
-        print("Vertices:");
-        for (mut i = 0; i < this.V; i += 1)
+        in("Vertices:");
+        với (biến i = 0; i < đây.V; i += 1)
         {
-            mut temp = this.graph[i];
+            biến temp = đây.graph[i];
 
-            while (temp)
+            khi (temp)
             {
-                print("Vertex " + i + " -> " + temp.vertex);
+                in("Vertex " + i + " -> " + temp.vertex);
                 temp = temp.next;
             }
         }
     }
 }
 
-mut g = Graph(4);
+biến g = Graph(4);
 
 g.add_edge(1, 2);
 g.add_edge(1, 3);

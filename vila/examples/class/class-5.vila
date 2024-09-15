@@ -1,12 +1,12 @@
-class Cake
+lớp Cake
 {
     eat()
     {
-        print("The " + this.cake_type + " cake is delicious");
+        in("The " + đây.cake_type + " cake is delicious");
     }
 }
 
-mut cake = Cake();
+biến cake = Cake();
 cake.cake_type = "Chocolate";
 
 cake.eat();

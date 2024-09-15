@@ -1,6 +1,6 @@
-print(this);
+in(đây); // lỗi ngoài lớp
 
-fun method()
+hàm method()
 {
-    print(this);
+    in(đây); // lỗi ngoài lớp
 }

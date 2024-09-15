@@ -1,15 +1,15 @@
-fun which_func(fn)
+hàm which_func(fn)
 {
-    print(fn);
+    in(fn);
 }
 
-which_func(fun (b) {
-    print(b);
+which_func(hàm (b) {
+    in(b);
 });
 
-fun func(a)
+hàm func(a)
 {
-    print(a);
+    in(a);
 }
 
 which_func(func);

@@ -1,23 +1,23 @@
-class Node
+lớp Node
 {
-    init(data)
+    khởi_tạo(data)
     {
-        this.data = data;
-        this.left = nil;
-        this.right = nil;
+        đây.data = data;
+        đây.left = trống;
+        đây.right = trống;
     }
 }
 
-fun swap_every_k_level(root, level, k)
+hàm swap_every_k_level(root, level, k)
 {
-    if (root == nil or (root.left == nil and root.right == nil))
+    nếu (root == trống hoặc (root.left == trống và root.right == trống))
     {
-        return;
+        trả;
     }
 
-    if ((level + 1) % k == 0)
+    nếu ((level + 1) % k == 0)
     {
-        mut temp = root.left;
+        biến temp = root.left;
         root.left = root.right;
         root.right = temp;
     }
@@ -26,15 +26,15 @@ fun swap_every_k_level(root, level, k)
     swap_every_k_level(root.right, level + 1, k);
 }
 
-fun inorder(root)
+hàm inorder(root)
 {
-    if (root == nil)
+    nếu (root == trống)
     {
-        return;
+        trả;
     }
 
     inorder(root.left);
-    print(root.data);
+    in(root.data);
     inorder(root.right);
 }
 
@@ -44,20 +44,20 @@ fun inorder(root)
 //  /	/ \
 // 4   7   8
 
-mut root = Node(1);
+biến root = Node(1);
 root.left = Node(2);
 root.right = Node(3);
 root.left.left = Node(4);
 root.right.right = Node(8);
 root.right.left = Node(7);
 
-mut k = 2;
+biến k = 2;
 
-print("Before swapping:");
+in("Before swapping:");
 inorder(root);
-print("");
+in("");
 
 swap_every_k_level(root, 1, k);
 
-print("After swapping:");
+in("After swapping:");
 inorder(root);

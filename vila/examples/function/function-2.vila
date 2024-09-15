@@ -1,26 +1,26 @@
-// fibonacci function
-fun fib(n)
+// fibonacci hàmction
+hàm fib(n)
 {
-    if (n <= 1)
+    nếu (n <= 1)
     {
-        return n;
+        trả n;
     }
 
-    return fib(n - 2) + fib(n - 1);
+    trả fib(n - 2) + fib(n - 1);
 }
 
-mut li = [];
+biến li = [];
 
-for (mut i = 0; i < 20; i += 1)
+với (biến i = 0; i < 20; i += 1)
 {
     li[i] = fib(i);
 }
 
-print(li);
+in(li);
 
-mut test = [1, 2, 3];
+biến test = [1, 2, 3];
 
-for (mut i = 0; i < 4; i += 1)
+với (biến i = 0; i < 4; i += 1)
 {
-    print(test[i]);
+    in(test[i]);
 }

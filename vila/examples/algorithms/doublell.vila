@@ -1,54 +1,54 @@
 // doublely linked list
-class Node
+lớp Node
 {
-    init(data)
+    khởi_tạo(data)
     {
-        this.data = data;
-        this.next = nil;
-        this.prev = nil;
+        đây.data = data;
+        đây.next = trống;
+        đây.prev = trống;
     }
 }
 
-class DoublelyLinkedList
+lớp DoublelyLinkedList
 {
-    init()
+    khởi_tạo()
     {
-        this.head = nil;
+        đây.head = trống;
     }
 
     // insert at the beginning of the list
     push(new_data)
     {
-        mut new_node = Node(new_data);
-        new_node.next = this.head;
+        biến new_node = Node(new_data);
+        new_node.next = đây.head;
 
-        if (this.head != nil)
+        nếu (đây.head != trống)
         {
-            this.head.prev = new_node;
+            đây.head.prev = new_node;
         }
 
-        this.head = new_node;
+        đây.head = new_node;
     }
 
     remove(value)
     {
-        mut current_node = this.head;
+        biến current_node = đây.head;
 
-        while (current_node != nil)
+        khi (current_node != trống)
         {
-            if (current_node.data == value)
+            nếu (current_node.data == value)
             {
-                if (current_node.prev != nil and current_node.next != nil)
+                nếu (current_node.prev != trống và current_node.next != trống)
                 {
                     current_node.prev.next = current_node.next;
                     current_node.next.prev = current_node.prev;
                 }
-                else
+                thì
                 {
-                    this.head = current_node.next;
+                    đây.head = current_node.next;
                 }
 
-                break;
+                dừng;
             }
 
             current_node = current_node.next;
@@ -57,24 +57,24 @@ class DoublelyLinkedList
 
     bottom_iterate()
     {
-        print("Checking from bottom up:");
+        in("Checking from bottom up:");
         
-        mut current_node = this.head;
+        biến current_node = đây.head;
 
-        while (current_node.next != nil)
+        khi (current_node.next != trống)
         {
             current_node = current_node.next;
         }
 
-        while (current_node != nil)
+        khi (current_node != trống)
         {
-            print("Checked " + current_node.data);
+            in("Checked " + current_node.data);
             current_node = current_node.prev;
         }
     }
 }
 
-mut dll = DoublelyLinkedList();
+biến dll = DoublelyLinkedList();
 
 dll.push(1);
 dll.push(2);
@@ -83,10 +83,10 @@ dll.push(4);
 dll.push(5);
 
 dll.bottom_iterate();
-print("");
+in("");
 
-print("Removing node '3'");
+in("Removing node '3'");
 dll.remove(3);
-print("");
+in("");
 
 dll.bottom_iterate();

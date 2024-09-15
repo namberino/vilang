@@ -1,83 +1,83 @@
-fun sizeof(list)
+hàm sizeof(list)
 {
-    mut size = 0;
+    biến size = 0;
 
-    for (mut i = 0; list[i]; i += 1)
+    với (biến i = 0; list[i]; i += 1)
     {
         size += 1;
     }
 
-    return size;
+    trả size;
 }
 
-fun append(list, element)
+hàm append(list, element)
 {
     list[sizeof[list]] = element;
 }
 
-fun prepend(list, element)
+hàm prepend(list, element)
 {
-    mut result = [element];
+    biến result = [element];
 
-    for (mut i = 0; i < sizeof(list); i += 1)
+    với (biến i = 0; i < sizeof(list); i += 1)
     {
         result[i + 1] = list[i];
     }
     
-    return result;
+    trả result;
 }
 
-fun foldl(oper, initial, list)
+hàm foldl(oper, initial, list)
 {
-    for (mut i = 0; list[i]; i += 1)
+    với (biến i = 0; list[i]; i += 1)
     {
         initial = oper(initial, list[i]);
     }
 
-    return initial;
+    trả initial;
 }
 
-fun foldr(oper, initial, list)
+hàm foldr(oper, initial, list)
 {
-    mut last = sizeof(list) - 1;
+    biến last = sizeof(list) - 1;
 
-    for (mut i = last; i >= 0; i -= 1)
+    với (biến i = last; i >= 0; i -= 1)
     {
         initial = oper(list[i], initial);
     }
 
-    return initial;
+    trả initial;
 }
 
-fun map(proc, list)
+hàm map(proc, list)
 {
-    fun maphelper(first, result)
+    hàm maphelper(first, result)
     {
-        return prepend(result, proc(first));
+        trả prepend(result, proc(first));
     }
 
-    return foldr(maphelper, [], list);
+    trả foldr(maphelper, [], list);
 }
 
-fun filter(pred, list)
+hàm filter(pred, list)
 {
-    fun helper(first, result)
+    hàm helper(first, result)
     {
-        if (pred(first))
+        nếu (pred(first))
         {
-            return prepend(result, first);
+            trả prepend(result, first);
         }
-        else
+        thì
         {
-            return result;
+            trả result;
         }
     }
 
-    return foldr(helper, [], list);
+    trả foldr(helper, [], list);
 }
 
-mut result = map(fun (num) { return num * num; }, [1, 2, 3, 4, 5]);
-mut greater = filter(fun (num) { return num > 2; }, [1, 2, 3, 4, 5]);
+biến result = map(hàm (num) { trả num * num; }, [1, 2, 3, 4, 5]);
+biến greater = filter(hàm (num) { trả num > 2; }, [1, 2, 3, 4, 5]);
 
-print(result);
-print(greater);
+in(result);
+in(greater);
