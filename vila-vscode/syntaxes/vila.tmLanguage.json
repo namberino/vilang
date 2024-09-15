@@ -46,7 +46,7 @@
             "patterns": [
 				{
 					"name": "entity.name.function.member.vila",
-                    "match": "\\b(in|hàm|đầu_vào|thoát|đồng_hồ|thời_gian|tạo|gốc)\\b"
+                    "match": "\\b(in|hàm|đầu_vào|thoát|đồng_hồ|thời_gian|khởi_tạo)\\b"
 				}
 			]
         },
@@ -77,7 +77,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.vila",
-                    "match": "\\b(nếu|thì|khi|với|biến|hoặc|và|trả|dừng|đây)\\b"
+                    "match": "\\b(nếu|thì|khi|với|biến|hoặc|và|trả|dừng|đây|gốc)\\b"
 				}
 			]
 		},

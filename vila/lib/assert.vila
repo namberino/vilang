@@ -3,41 +3,41 @@
 // Licensed under Apache License v2.0
 //------------------------------------//
 
-class Error
+lớp Error
 {
-    init(msg, code)
+    khởi_tạo(msg, code)
     {
-        this.msg = msg;
-        this.code = code;
-        this.type = "Error";
+        đây.msg = msg;
+        đây.code = code;
+        đây.type = "Error";
     }
 }
 
-class RuntimeError : Error
+lớp RuntimeError : Error
 {
-    init(msg)
+    khởi_tạo(msg)
     {
-        super.init(msg, 100);
-        this.type = "Runtime Error";
+        gốc.init(msg, 100);
+        đây.type = "Runtime Error";
     }
 }
 
-class AssertionError : Error
+lớp AssertionError : Error
 {
-    init(msg)
+    khởi_tạo(msg)
     {
-        super.init(msg, 200);
-        this.type = "Assertion Error";
+        gốc.init(msg, 200);
+        đây.type = "Assertion Error";
     }
 }
 
-fun throw(err)
+hàm throw(err)
 {
     print(err.type + " : " + err.msg);
     exit(err.code);
 }
 
-fun assert(condition, error)
+hàm assert(condition, error)
 {
     if (!condition)
         throw(AssertionError(error));
