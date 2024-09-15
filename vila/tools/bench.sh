@@ -16,7 +16,7 @@ for program in $NBL_FILES; do
     output=$(./bin/vila "$program")
     
     # extract elapsed time
-    elapsed_time=$(echo "$output" | grep 'Elapsed:' | awk '{print $2}')
+    elapsed_time=$(echo "$output" | grep 'Thời gian chạy:' | awk '{print $2}')
     
     # get program name without the path
     program_name=$(basename "$program")

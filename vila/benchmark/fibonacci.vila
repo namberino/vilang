@@ -8,4 +8,4 @@ hàm fib(n)
 
 biến start = đồng_hồ();
 biến t = fib(30);
-in("Elapsed: " + (đồng_hồ() - start));
+in("Thời gian chạy: " + (đồng_hồ() - start));

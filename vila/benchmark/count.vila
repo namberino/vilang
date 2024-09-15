@@ -7,4 +7,4 @@ khi (i < 10000000)
 	i += 1;
 }
 
-in("Elapsed: " + (đồng_hồ() - start));
+in("Thời gian chạy: " + (đồng_hồ() - start));
