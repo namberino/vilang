@@ -13,14 +13,14 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         include:
           - os: ubuntu-latest
-            bin_name: nimble-linux
-            archive_name: nimble-linux.tar.gz
+            bin_name: vila-linux
+            archive_name: vila-linux.tar.gz
           - os: macos-latest
-            bin_name: nimble-macos
-            archive_name: nimble-macos.tar.gz
+            bin_name: vila-macos
+            archive_name: vila-macos.tar.gz
           - os: windows-latest
-            bin_name: nimble-windows.exe
-            archive_name: nimble-windows.zip
+            bin_name: vila-windows.exe
+            archive_name: vila-windows.zip
 
     steps:
       - name: Checkout repository
@@ -52,11 +52,11 @@ jobs:
 
       - name: Rename binary on Linux/macOS
         if: matrix.os != 'windows-latest'
-        run: mv bin/nimble ${{ matrix.bin_name }}
+        run: mv bin/vila ${{ matrix.bin_name }}
 
       - name: Rename binary on Windows
         if: matrix.os == 'windows-latest'
-        run: mv bin/nimble ${{ matrix.bin_name }}
+        run: mv bin/vila ${{ matrix.bin_name }}
         shell: bash
 
       - name: Archive binary on Linux/macOS
@@ -85,17 +85,17 @@ jobs:
       - name: Download Linux artifact
         uses: actions/download-artifact@v3
         with:
-          name: nimble-linux.tar.gz
+          name: vila-linux.tar.gz
           path: .
       - name: Download macOS artifact
         uses: actions/download-artifact@v3
         with:
-          name: nimble-macos.tar.gz
+          name: vila-macos.tar.gz
           path: .
       - name: Download Windows artifact
         uses: actions/download-artifact@v3
         with:
-          name: nimble-windows.zip
+          name: vila-windows.zip
           path: .
 
       - name: Set variables
@@ -111,7 +111,7 @@ jobs:
           tag_name: ${{ env.tag }}
           release_name: ${{ env.tag }}
           body: |
-            NIMBLE release. Version ${{ env.tag }}
+            Vila phiên bản ${{ env.tag }}
           draft: false
           prerelease: false
 
@@ -121,8 +121,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./nimble-linux.tar.gz
-          asset_name: nimble-linux.tar.gz
+          asset_path: ./vila-linux.tar.gz
+          asset_name: vila-linux.tar.gz
           asset_content_type: application/gzip
 
       - name: Upload macOS binary
@@ -131,8 +131,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./nimble-macos.tar.gz
-          asset_name: nimble-macos.tar.gz
+          asset_path: ./vila-macos.tar.gz
+          asset_name: vila-macos.tar.gz
           asset_content_type: application/gzip
 
       - name: Upload Windows binary
@@ -141,6 +141,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./nimble-windows.zip
-          asset_name: nimble-windows.zip
+          asset_path: ./vila-windows.zip
+          asset_name: vila-windows.zip
           asset_content_type: application/zip
