@@ -1,10 +1,10 @@
-# Vila: The Vietnamese Programming Language
+# Vilang: The Vietnamese Programming Language
 
 This is a programming language with support for Vietnamese syntaxes.
 
 ## Syntax
 
-```nblang
+```vilang
 lớp Tree
 {
     tạo(vật, độ_sâu)
