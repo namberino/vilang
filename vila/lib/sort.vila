@@ -3,17 +3,17 @@
 // Được cấp phép theo Giấy phép Apache v2.0
 //------------------------------------//
 
-fun bubble_sort(array)
+hàm bubble_sort(array)
 {
-    if (len(array) > 1 and array != nil)
+    nếu (độ_dài(array) > 1 và array != nil)
     {
-        for (mut i = 0; i < len(array); i += 1)
+        với (biến i = 0; i < độ_dài(array); i += 1)
         {
-            for (mut j = 0; j < len(array) - i - 1; j += 1)
+            với (biến j = 0; j < độ_dài(array) - i - 1; j += 1)
             {
-                if (array[j] > array[j + 1])
+                nếu (array[j] > array[j + 1])
                 {
-                    mut temp = array[j];
+                    biến temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
                 }
@@ -22,15 +22,15 @@ fun bubble_sort(array)
     }
 }
 
-fun insertion_sort(array)
+hàm insertion_sort(array)
 {
-    for (mut i = 1; i < len(array); i += 1)
+    với (biến i = 1; i < độ_dài(array); i += 1)
     {
-        mut j = i;
+        biến j = i;
 
-        while (array[j] < array[j - 1])
+        khi (array[j] < array[j - 1])
         {
-            mut temp = array[j];
+            biến temp = array[j];
             array[j] = array[j - 1];
             array[j - 1] = temp;
 
@@ -39,58 +39,58 @@ fun insertion_sort(array)
     }
 }
 
-fun quick_sort(array, low, high)
+hàm quick_sort(array, low, high)
 {
-    fun partition(array, low, high)
+    hàm partition(array, low, high)
     {
-        mut pivot = array[high];
-        mut i = low - 1;
+        biến pivot = array[high];
+        biến i = low - 1;
 
-        for (mut j = low; j < high; j += 1)
+        với (biến j = low; j < high; j += 1)
         {
-            if (array[j] <= pivot)
+            nếu (array[j] <= pivot)
             {
                 i += 1;
                 
-                mut temp = array[i];
+                biến temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
             }
         }
 
-        mut temp = array[i + 1];
+        biến temp = array[i + 1];
         array[i + 1] = array[high];
         array[high] = temp;
 
-        return i + 1;
+        trả i + 1;
     }
 
-    if (low <= high)
+    nếu (low <= high)
     {
-        mut pivot_index = partition(array, low, high);
+        biến pivot_index = partition(array, low, high);
 
         quick_sort(array, low, pivot_index - 1);
         quick_sort(array, pivot_index + 1, high);
     }
 }
 
-fun selection_sort(array)
+hàm selection_sort(array)
 {
-    for (mut i = 0; i < len(array); i += 1)
+    với (biến i = 0; i < độ_dài(array); i += 1)
     {
-        mut min_index = i;
+        biến min_index = i;
 
-        for (mut j = i + 1; j < len(array); j += 1)
+        với (biến j = i + 1; j < độ_dài(array); j += 1)
         {
-            if (array[j] < array[min_index])
+            nếu (array[j] < array[min_index])
             {
                 min_index = j;
             }
         }
 
-        if (min_index != i)
+        nếu (min_index != i)
         {
-            mut temp = array[min_index];
+            biến temp = array[min_index];
             array[min_index] = array[i];
             array[i] = temp;
         }
