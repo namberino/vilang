@@ -1,7 +1,7 @@
 {
-  "name": "vila",
-  "displayName": "Vila",
-  "description": "Vila Programming Language",
+  "name": "vilang",
+  "displayName": "Vilang",
+  "description": "Vilang Programming Language",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.60.0"
@@ -13,7 +13,7 @@
     "languages": [{
       "id": "vila",
       "aliases": ["Vila", "vila"],
-      "extensions": [".vila",".vl"],
+      "extensions": [".vila",".vil"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{

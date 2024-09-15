@@ -19,7 +19,7 @@ for nbl in $NBL_FILES; do
 
     # run and get difference between output and expected output
     echo "Đang chạy test case $nbl...";
-    if ! ./bin/vila $nbl | diff -u --color "$expected" -; then
+    if ! ./bin/vilang $nbl | diff -u --color "$expected" -; then
         echo "Test case $nbl không đạt!";
         failed=$((failed + 1)); # count failed cases
     fi;

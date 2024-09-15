@@ -13,7 +13,7 @@ for program in $NBL_FILES; do
     echo "Đang chạy benchmark: $program..."
 
     # run and capture output
-    output=$(./bin/vila "$program")
+    output=$(./bin/vilang "$program")
     
     # extract elapsed time
     elapsed_time=$(echo "$output" | grep 'Elapsed:' | awk '{print $2}')
