@@ -7,7 +7,7 @@
 
 declare -A elapsed_times # associative array (basically a dictionary)
 
-NBL_FILES=$(find benchmark -name '*.nbl')
+NBL_FILES=$(find benchmark -name '*.vila')
 
 for program in $NBL_FILES; do
     echo "Running benchmark: $program"

@@ -11,7 +11,7 @@ NC='\033[0m'
 
 failed=0; # number of failed cases
 
-NBL_FILES=$(find tests -name '*.nbl');
+NBL_FILES=$(find tests -name '*.vila');
 
 for nbl in $NBL_FILES; do
     # get expected output
