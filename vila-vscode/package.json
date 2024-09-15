@@ -1,7 +1,7 @@
 {
-  "name": "nimble",
-  "displayName": "NIMBLE",
-  "description": "NIMBLE Programming Language",
+  "name": "vila",
+  "displayName": "Vila",
+  "description": "Vila Programming Language",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.60.0"
@@ -11,15 +11,15 @@
   ],
   "contributes": {
     "languages": [{
-      "id": "nimble",
-      "aliases": ["NIMBLE", "nimble"],
-      "extensions": [".nble",".nimble"],
+      "id": "vila",
+      "aliases": ["Vila", "vila"],
+      "extensions": [".vila",".vl"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
-      "language": "nimble",
-      "scopeName": "source.nimble",
-      "path": "./syntaxes/nimble.tmLanguage.json"
+      "language": "vila",
+      "scopeName": "source.vila",
+      "path": "./syntaxes/vila.tmLanguage.json"
     }]
   }
 }
