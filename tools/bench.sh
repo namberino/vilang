@@ -7,6 +7,9 @@
 
 declare -A elapsed_times # associative array (basically a dictionary)
 
+GREEN='\033[0;32m'
+NC='\033[0m'
+
 NBL_FILES=$(find benchmark -name '*.vila')
 
 for program in $NBL_FILES; do
@@ -29,5 +32,5 @@ echo
 echo "Thời gian chạy của các benchmark:"
 
 for program in "${!elapsed_times[@]}"; do
-    echo "$program: ${elapsed_times[$program]}"
+    echo -e "$program: ${GREEN}${elapsed_times[$program]}${NC}"
 done
