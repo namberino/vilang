@@ -53,7 +53,7 @@ void run_prompt(Interpreter& interpreter)
     
     while (true)
     {
-        std::cout << ANSI_CYAN << "vila" << ANSI_RED << "% " << ANSI_RESET;
+        std::cout << ANSI_CYAN << "vilang" << ANSI_RED << "% " << ANSI_RESET;
 
         if (std::getline(std::cin, text))
         {
