@@ -30,7 +30,13 @@ int NativeTime::arity()
 std::any NativeTime::call(Interpreter& interpreter, std::vector<std::any> args)
 {
     std::time_t current_time = std::time(nullptr);
-    return std::string(std::ctime(&current_time));
+    char mbstr[100];
+
+    std::locale::global(std::locale("vi_VN.UTF-8"));
+    if (std::strftime(mbstr, sizeof(mbstr), "%A %c", std::localtime(&current_time)))
+        return std::string(mbstr);
+
+    return "Can't access time";
 }
 
 std::string NativeTime::to_string()
