@@ -22,7 +22,6 @@
 #include "resolver.hpp"
 #include "interpreter.hpp"
 
-#define ANSI_RED "\033[0;31m"
 #define ANSI_CYAN "\033[0;36m"
 #define ANSI_RESET "\033[0m"
 
