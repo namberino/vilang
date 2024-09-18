@@ -40,22 +40,33 @@ lớp CircularQueue
         }
         thì nếu (đây.tail >= đây.head) // normal order
         {
+            biến out_str = "";
+
             với (biến i = đây.head; i < đây.tail + 1; i += 1)
             {
-                in(đây.queue[i]);
+                out_str += đây.queue[i];
+                out_str += " ";
             }
+
+            in(out_str);
         }
         thì // circular order
         {
+            biến out_str = "";
+
             với (biến i = đây.head; i < đây.length; i += 1)
             {
-                in(đây.queue[i]);
+                out_str += đây.queue[i];
+                out_str += " ";
             }
 
             với (biến i = 0; i < đây.tail + 1; i += 1)
             {
-                in(đây.queue[i]);
+                out_str += đây.queue[i];
+                out_str += " ";
             }
+
+            in(out_str);
         }
     }
 
