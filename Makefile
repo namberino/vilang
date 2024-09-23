@@ -1,6 +1,5 @@
 CC = $(shell which clang++)
 CC ?= $(shell which g++) # fallback compiler
-PY3 = $(shell which python3) # python interpreter (for flask)
 
 CPP_SRC = $(wildcard src/*.cpp)
 HEADERS = $(wildcard include/*.hpp)
@@ -48,7 +47,4 @@ release: clean compile
 debug: CFLAGS += $(DEBUG_CFLAGS)
 debug: clean compile
 
-web: compile
-	$(PY3) web/app.py
-
-.PHONY: compile run clean test bench release debug web
+.PHONY: compile run clean test bench release debug
