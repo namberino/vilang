@@ -20,7 +20,7 @@ lớp Graph
 
     print_paths(dist)
     {
-        in("Vertex and distance from source");
+        in("Số nút và độ dài từ nguồn");
         với (biến node = 0; node < đây.vertices; node += 1)
         {
             in(node + 1 + " | " + dist[node]);

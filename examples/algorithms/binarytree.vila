@@ -2,8 +2,8 @@ lớp Node
 {
     khởi_tạo(key)
     {
-        đây.left = nil;
-        đây.right = nil;
+        đây.left = trống;
+        đây.right = trống;
         đây.val = key;
     }
 
