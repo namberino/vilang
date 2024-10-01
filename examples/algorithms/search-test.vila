@@ -1,4 +1,4 @@
-nhập "lõi:search";
+nhập "lõi:tìm-kiếm";
 
 biến array = [11, 23, 36, 42, 58, 65, 74, 87, 94];
 biến length = độ_dài(array);

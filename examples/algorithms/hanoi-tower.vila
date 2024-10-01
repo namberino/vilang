@@ -1,19 +1,19 @@
-biến count = 0;
+biến đếm = 0;
 
-hàm tower_of_hanoi(n, A, B, C)
+hàm tháp_hà_nội(n, A, B, C)
 {
     nếu (n == 1)
     {
-        count += 1;
-        in("Step " + count + ": Move disk 1 from rod " + A + " to rod " + B);
+        đếm += 1;
+        in("Step " + đếm + ": Move disk 1 from rod " + A + " to rod " + B);
         trả;
     }
 
-    tower_of_hanoi(n - 1, A, C, B);
-    count += 1;
-    in("Step " + count + ": Move disk " + n + " from rod " + A + " to rod " + B);
-    tower_of_hanoi(n - 1, C, B, A);
+    tháp_hà_nội(n - 1, A, C, B);
+    đếm += 1;
+    in("Step " + đếm + ": Move disk " + n + " from rod " + A + " to rod " + B);
+    tháp_hà_nội(n - 1, C, B, A);
 }
 
-biến n = 3;
-tower_of_hanoi(n, "A", "B", "C");
+biến n = 15;
+tháp_hà_nội(n, "A", "B", "C");

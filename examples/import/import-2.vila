@@ -1,4 +1,4 @@
-nhập "lõi:math";
+nhập "lõi:toán";
 
 biến angle = PI / 3;
 

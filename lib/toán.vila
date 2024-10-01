@@ -120,3 +120,17 @@ hàm sqrt(x)
 
     trả guess;
 }
+
+hàm max(arg1, arg2)
+{
+    nếu (arg1 >= arg2)
+        trả arg1;
+    trả arg2;
+}
+
+hàm abs(num)
+{
+    nếu (num < 0)
+        trả 0 - num;
+    trả num;
+}

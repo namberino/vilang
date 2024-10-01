@@ -1,47 +1,30 @@
-// 2d blooming pattern
-hàm max(arg1, arg2)
-{
-    nếu (arg1 >= arg2)
-        trả arg1;
-    trả arg2;
-}
+nhập "lõi:toán";
 
-hàm abs(num)
+hàm dãy_nở(n)
 {
-    nếu (num < 0)
-        trả 0 - num;
-    trả num;
-}
-
-hàm bloom(n)
-{
-    biến arr = [];
+    biến mảng = [];
     
-    với (biến i = 0; i < n; i += 1)
-    {
-        arr[i] = [];
+    với (biến i = 0; i < n; i += 1) {
+        mảng[i] = [];
     }
 
-    biến mid = chia_nguyên(n, 2);
-    biến distance;
+    biến giữa = chia_nguyên(n, 2);
+    biến khoảng_cách;
 
-    // get distance from mid point (the middle value of the middle array)
-    với (biến i = 0; i < n; i += 1)
-    {
-        với (biến j = 0; j < n; j += 1)
-        {
-            distance = max(abs(i - mid), abs(j - mid));
-            arr[i][j] = distance + 1;
+    // lấy khoảng cách từ điểm hiện tại đến tâm
+    với (biến i = 0; i < n; i += 1) {
+        với (biến j = 0; j < n; j += 1) {
+            khoảng_cách = max(abs(i - giữa), abs(j - giữa));
+            mảng[i][j] = khoảng_cách + 1;
         }
     }
 
-    trả arr;
+    trả mảng;
 }
 
-biến n = đầu_vào("Enter length: ");
-biến arr = bloom(n);
+biến n = đầu_vào("Nhập độ lớn: ");
+biến mảng = dãy_nở(n);
 
-với (biến i = 0; i < n; i += 1)
-{
-    in(arr[i]);
+với (biến i = 0; i < n; i += 1) {
+    in(mảng[i]);
 }

@@ -1,4 +1,4 @@
-nhập "lõi:collections";
+nhập "lõi:tập-hợp";
 
 biến my_map = Map();
 

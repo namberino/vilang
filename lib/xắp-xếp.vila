@@ -5,7 +5,7 @@
 
 hàm bubble_sort(array)
 {
-    nếu (độ_dài(array) > 1 và array != nil)
+    nếu (độ_dài(array) > 1 và array != trống)
     {
         với (biến i = 0; i < độ_dài(array); i += 1)
         {
