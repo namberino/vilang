@@ -433,7 +433,7 @@ std::any Interpreter::visitSuperExpr(std::shared_ptr<SuperExpr> expr)
     std::shared_ptr<NblFunction> method = superclass->find_method(expr->method.lexeme);
 
     if (method == nullptr) // can't find method
-        throw RuntimeError(expr->method, "Trường chưa được định nghĩa: '" + expr->method.lexeme + "'");
+        throw RuntimeError(expr->method, "Hàm chưa được định nghĩa: '" + expr->method.lexeme + "'");
 
     return method->bind(obj);
 }
