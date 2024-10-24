@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 
         if(point != NULL)
         {
-            if(strcmp(point, ".vila") != 0 && strcmp(point, ".vil") != 0 && strcmp(point, "vl") != 0)
+            if(strcmp(point, ".vila") != 0 && strcmp(point, ".vil") != 0 && strcmp(point, ".vl") != 0)
             {
                 std::cout << "Định dạng file không hợp lệ, xin hãy dùng file với định dạng '.vila'\n";
                 exit(1);
