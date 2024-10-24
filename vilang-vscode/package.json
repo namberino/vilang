@@ -13,7 +13,7 @@
     "languages": [{
       "id": "vila",
       "aliases": ["Vila", "vila"],
-      "extensions": [".vila",".vil"],
+      "extensions": [".vila",".vil",".vl"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
